@@ -1,5 +1,5 @@
-# Trusterd HTTP/2 Web Server Scripting with mruby
-Trusterd is a high performance HTTP/2 Web Server scripting with mruby using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server which is high permance and customizable with mruby.
+# Trusterd HTTP/2 Web Server
+Trusterd is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server which is high permance and customizable with mruby.
 
 ## Benchmark
 Please see [benchmark link](https://gist.github.com/matsumoto-r/9702123).
