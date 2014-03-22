@@ -54,7 +54,29 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```bash
 mruby /usr/local/trusterd/bin/trusterd.rb
 ```
+## Peformance
+Max performance: 336681 req/s
+```
+$ h2load -n1000000 -c100 -m100 http://127.0.0.1:8080/index.html
+starting benchmark...
+spawning thread #0: 100 concurrent clients, 1000000 total requests
+progress: 10% done
+progress: 20% done
+progress: 30% done
+progress: 40% done
+progress: 50% done
+progress: 60% done
+progress: 70% done
+progress: 80% done
+progress: 90% done
+progress: 100% done
 
+finished in 2 sec, 970 millisec and 170 microsec, 336681 req/s, 8220 kbytes/s
+requests: 1000000 total, 1000000 started, 1000000 done, 1000000 succeeded, 0 failed, 0 errored
+status codes: 1000000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 49003700 bytes total, 1600 bytes headers, 25000000 bytes data
+```
+Please see [details](https://gist.github.com/matsumoto-r/9702123).
 ## License
 under the MIT License:
 
