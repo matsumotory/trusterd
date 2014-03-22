@@ -10,13 +10,13 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - more customizable Web server configration
 
 ## Quick install
-#### install mruby with mruby-http2
+#### Install mruby with mruby-http2
 Please see [mruby-http2 page](https://github.com/matsumoto-r/mruby-http2).
-#### download trusterd
+#### Download trusterd
 ```bash
 git clone https://github.com/matsumoto-r/mruby-http2.git
 ```
-#### write config ``bin/trusterd.rb``
+#### Write config ``bin/trusterd.rb``
 ```ruby
 root_dir = "/usr/local/trusterd"
 
@@ -43,14 +43,14 @@ s = HTTP2::Server.new({
 
 s.run
 ```
-#### create directory and files
+#### Create directory and files
 ```bash
 mkdir -p /usr/local/trusterd/{bin,htdocs,ssl}
 cp ssl.key ssl.crt /usr/local/trusterd/ssl/.
 cp bin/trusterd.rb /usr/local/trusterd/bin/.
 echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
-#### run trusterd
+#### Run trusterd
 ```bash
 mruby /usr/local/trusterd/bin/trusterd.rb
 ```
