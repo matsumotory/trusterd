@@ -6,7 +6,6 @@ Please see [benchmark link](https://gist.github.com/matsumoto-r/9702123).
 
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
-- support callback Ruby block to extend Web server functions
 - more customizable Web server configration
 
 ## Quick install
@@ -39,7 +38,31 @@ s = HTTP2::Server.new({
 
   # damone default: false
   # :daemon => true,
+
+  # callback default: false
+  # :callback => true,
 })
+
+#
+# when :callback option is true,
+#
+# s.set_map_to_strage_cb {
+#
+#   p "callback bloack at set_map_to_strage_cb"
+#   p s.request.uri
+#   p s.request.filename
+#
+#   # location setting
+#   if s.request.uri == "/index.html"
+#     s.request.filename = "#{root_dir}/htdocs/hoge"
+#   end
+#   p s.request.filename
+#
+#   # you can use regexp if you link regexp mrbgem.
+#   # Or, you can use KVS like mruby-redis or mruby-
+#   # vedis and so on. 
+#
+# }
 
 s.run
 ```
