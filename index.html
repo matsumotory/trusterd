@@ -47,7 +47,6 @@
 <p>This is a very early version, please test and report errors. Wellcome pull-request.</p>
 
 <ul>
-<li>support callback Ruby block to extend Web server functions</li>
 <li>more customizable Web server configration</li>
 </ul><h2>
 <a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick install</h2>
@@ -88,7 +87,31 @@
 
   <span class="c1"># damone default: false</span>
   <span class="c1"># :daemon =&gt; true,</span>
+
+  <span class="c1"># callback default: false</span>
+  <span class="c1"># :callback =&gt; true,</span>
 <span class="p">})</span>
+
+<span class="c1">#</span>
+<span class="c1"># when :callback option is true,</span>
+<span class="c1">#</span>
+<span class="c1"># s.set_map_to_strage_cb {</span>
+<span class="c1">#</span>
+<span class="c1">#   p "callback bloack at set_map_to_strage_cb"</span>
+<span class="c1">#   p s.request.uri</span>
+<span class="c1">#   p s.request.filename</span>
+<span class="c1">#</span>
+<span class="c1">#   # location setting</span>
+<span class="c1">#   if s.request.uri == "/index.html"</span>
+<span class="c1">#     s.request.filename = "#{root_dir}/htdocs/hoge"</span>
+<span class="c1">#   end</span>
+<span class="c1">#   p s.request.filename</span>
+<span class="c1">#</span>
+<span class="c1">#   # you can use regexp if you link regexp mrbgem.</span>
+<span class="c1">#   # Or, you can use KVS like mruby-redis or mruby-</span>
+<span class="c1">#   # vedis and so on. </span>
+<span class="c1">#</span>
+<span class="c1"># }</span>
 
 <span class="n">s</span><span class="o">.</span><span class="n">run</span>
 </pre></div>
