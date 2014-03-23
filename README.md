@@ -78,7 +78,7 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 mruby /usr/local/trusterd/bin/trusterd.rb
 ```
 ## Peformance
-#####Max performance: 336681 req/s
+#####Max performance(2014/03/24): 284681 req/s
 [h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
 ```
 $ h2load -n1000000 -c100 -m100 http://127.0.0.1:8080/index.html
@@ -95,10 +95,11 @@ progress: 80% done
 progress: 90% done
 progress: 100% done
 
-finished in 2 sec, 970 millisec and 170 microsec, 336681 req/s, 8220 kbytes/s
+finished in 3 sec, 512 millisec and 701 microsec, 284681 req/s, 6950 kbytes/s
 requests: 1000000 total, 1000000 started, 1000000 done, 1000000 succeeded, 0 failed, 0 errored
 status codes: 1000000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 49003700 bytes total, 1600 bytes headers, 25000000 bytes data
+
 ```
 Please see [details](https://gist.github.com/matsumoto-r/9702123).
 ## License
