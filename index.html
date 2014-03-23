@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Trusterd - HTTP/2 Web Server scripting with mruby : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Trusterd - HTTP/2 Web Server scripting with mruby</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/matsumoto-r/trusterd">View on GitHub</a>
+
+          <h1 id="project_title">Trusterd - HTTP/2 Web Server scripting with mruby</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/matsumoto-r/trusterd/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/matsumoto-r/trusterd/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
+
+<p>Trusterd is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
+
+<h2>
+<a name="benchmark" class="anchor" href="#benchmark"><span class="octicon octicon-link"></span></a>Benchmark</h2>
+
+<p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">benchmark link</a>.</p>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+
+<p>This is a very early version, please test and report errors. Wellcome pull-request.</p>
+
+<ul>
+<li>support callback Ruby block to extend Web server functions</li>
+<li>more customizable Web server configration</li>
+</ul><h2>
+<a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick install</h2>
+
+<h4>
+<a name="install-mruby-with-mruby-http2" class="anchor" href="#install-mruby-with-mruby-http2"><span class="octicon octicon-link"></span></a>Install mruby with mruby-http2</h4>
+
+<p>Please see <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2 page</a>.</p>
+
+<h4>
+<a name="download-trusterd" class="anchor" href="#download-trusterd"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
+
+<div class="highlight highlight-bash"><pre>git clone https://github.com/matsumoto-r/mruby-http2.git
+</pre></div>
+
+<h4>
+<a name="write-config-bintrusterdrb" class="anchor" href="#write-config-bintrusterdrb"><span class="octicon octicon-link"></span></a>Write config <code>bin/trusterd.rb</code>
+</h4>
+
+<div class="highlight highlight-ruby"><pre><span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="no">HTTP2</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
+  <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">,</span>
+  <span class="ss">:key</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.key"</span><span class="p">,</span>
+  <span class="ss">:crt</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.crt"</span><span class="p">,</span>
+  <span class="ss">:document_root</span>  <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/htdocs"</span><span class="p">,</span>
+  <span class="ss">:server_name</span>    <span class="o">=&gt;</span> <span class="s2">"mruby-http2 server"</span><span class="p">,</span>
+
+  <span class="c1">#</span>
+  <span class="c1"># optional config</span>
+  <span class="c1">#</span>
+
+  <span class="c1"># debug default: false</span>
+  <span class="c1"># :debug  =&gt;  true,</span>
+
+  <span class="c1"># tls default: true</span>
+  <span class="c1"># :tls =&gt; false,</span>
+
+  <span class="c1"># damone default: false</span>
+  <span class="c1"># :daemon =&gt; true,</span>
+<span class="p">})</span>
+
+<span class="n">s</span><span class="o">.</span><span class="n">run</span>
+</pre></div>
+
+<h4>
+<a name="create-directory-and-files" class="anchor" href="#create-directory-and-files"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
+
+<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl<span class="o">}</span>
+cp ssl.key ssl.crt /usr/local/trusterd/ssl/.
+cp bin/trusterd.rb /usr/local/trusterd/bin/.
+<span class="nb">echo </span>hello trusterd world. &gt; /usr/local/trusterd/htdocs/index.html
+</pre></div>
+
+<h4>
+<a name="run-trusterd" class="anchor" href="#run-trusterd"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
+
+<div class="highlight highlight-bash"><pre>mruby /usr/local/trusterd/bin/trusterd.rb
+</pre></div>
+
+<h2>
+<a name="peformance" class="anchor" href="#peformance"><span class="octicon octicon-link"></span></a>Peformance</h2>
+
+<h5>
+<a name="max-performance-336681-reqs" class="anchor" href="#max-performance-336681-reqs"><span class="octicon octicon-link"></span></a>Max performance: 336681 req/s</h5>
+
+<p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.</p>
+
+<pre><code>$ h2load -n1000000 -c100 -m100 http://127.0.0.1:8080/index.html
+starting benchmark...
+spawning thread #0: 100 concurrent clients, 1000000 total requests
+progress: 10% done
+progress: 20% done
+progress: 30% done
+progress: 40% done
+progress: 50% done
+progress: 60% done
+progress: 70% done
+progress: 80% done
+progress: 90% done
+progress: 100% done
+
+finished in 2 sec, 970 millisec and 170 microsec, 336681 req/s, 8220 kbytes/s
+requests: 1000000 total, 1000000 started, 1000000 done, 1000000 succeeded, 0 failed, 0 errored
+status codes: 1000000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 49003700 bytes total, 1600 bytes headers, 25000000 bytes data
+</code></pre>
+
+<p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">details</a>.</p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>under the MIT License:</p>
+
+<ul>
+<li><a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Trusterd - HTTP/2 Web Server scripting with mruby maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
