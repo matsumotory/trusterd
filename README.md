@@ -11,7 +11,7 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 
 ## Quick install
 #### Install mruby with mruby-http2
-Please see [mruby-http2 page](https://github.com/matsumoto-r/mruby-http2).
+Please see [mruby-http2 page](https://github.com/matsumoto-r/mruby-http2), and copy ``bin/mruby`` binary into bin directory like ``/usr/local/bin/mruby``.
 #### Download trusterd
 ```bash
 git clone https://github.com/matsumoto-r/mruby-http2.git
