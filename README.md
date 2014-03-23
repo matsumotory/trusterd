@@ -55,7 +55,8 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 mruby /usr/local/trusterd/bin/trusterd.rb
 ```
 ## Peformance
-Max performance: 336681 req/s
+#####Max performance: 336681 req/s
+[h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
 ```
 $ h2load -n1000000 -c100 -m100 http://127.0.0.1:8080/index.html
 starting benchmark...
