@@ -84,7 +84,7 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
 #### Run trusterd
 ```bash
-/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf.rb
+/usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
 ```
 #### Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
