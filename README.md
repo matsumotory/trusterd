@@ -79,6 +79,12 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```bash
 /usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
 ```
+#### Check by nghttp
+[nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
+```
+$ nghttp http://127.0.0.1:8080/index.html
+hello trusterd world.
+```
 ## Peformance
 #####Max performance(2014/03/24): 284681 req/s
 [h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
