@@ -9,13 +9,12 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - more customizable Web server configration
 
 ## Quick install
-#### Install mruby with mruby-http2
-Please see [mruby-http2 page](https://github.com/matsumoto-r/mruby-http2), and copy ``bin/mruby`` binary into bin directory like ``/usr/local/bin/mruby``.
-#### Download trusterd
+#### Build trusterd
 ```bash
-git clone https://github.com/matsumoto-r/mruby-http2.git
+sh build.sh
 ```
-#### Write config ``bin/trusterd.rb``
+then, output ``bin/trusterd``
+#### Write config ``bin/trusterd.conf``
 ```ruby
 root_dir = "/usr/local/trusterd"
 
@@ -70,12 +69,12 @@ s.run
 ```bash
 mkdir -p /usr/local/trusterd/{bin,htdocs,ssl}
 cp ssl.key ssl.crt /usr/local/trusterd/ssl/.
-cp bin/trusterd.rb /usr/local/trusterd/bin/.
+cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
 echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
 #### Run trusterd
 ```bash
-mruby /usr/local/trusterd/bin/trusterd.rb
+/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
 ```
 ## Peformance
 #####Max performance(2014/03/24): 284681 req/s
