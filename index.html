@@ -52,26 +52,29 @@
 <a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick install</h2>
 
 <h4>
-<a name="install-mruby-with-mruby-http2" class="anchor" href="#install-mruby-with-mruby-http2"><span class="octicon octicon-link"></span></a>Install mruby with mruby-http2</h4>
-
-<p>Please see <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2 page</a>, and copy <code>bin/mruby</code> binary into bin directory like <code>/usr/local/bin/mruby</code>.</p>
-
-<h4>
 <a name="download-trusterd" class="anchor" href="#download-trusterd"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
 
-<div class="highlight highlight-bash"><pre>git clone https://github.com/matsumoto-r/mruby-http2.git
-</pre></div>
+<pre><code>git clone https://github.com/matsumoto-r/trusterd.git
+</code></pre>
 
 <h4>
-<a name="write-config-bintrusterdrb" class="anchor" href="#write-config-bintrusterdrb"><span class="octicon octicon-link"></span></a>Write config <code>bin/trusterd.rb</code>
+<a name="build-trusterd" class="anchor" href="#build-trusterd"><span class="octicon octicon-link"></span></a>Build trusterd</h4>
+
+<div class="highlight highlight-bash"><pre>sh build.sh
+</pre></div>
+
+<p>then, output <code>bin/trusterd</code></p>
+
+<h4>
+<a name="write-config-bintrusterdconf" class="anchor" href="#write-config-bintrusterdconf"><span class="octicon octicon-link"></span></a>Write config <code>bin/trusterd.conf</code>
 </h4>
 
 <div class="highlight highlight-ruby"><pre><span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="no">HTTP2</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
   <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">,</span>
-  <span class="ss">:key</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.key"</span><span class="p">,</span>
-  <span class="ss">:crt</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.crt"</span><span class="p">,</span>
+  <span class="c1">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
+  <span class="c1">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
   <span class="ss">:document_root</span>  <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/htdocs"</span><span class="p">,</span>
   <span class="ss">:server_name</span>    <span class="o">=&gt;</span> <span class="s2">"mruby-http2 server"</span><span class="p">,</span>
 
@@ -83,7 +86,7 @@
   <span class="c1"># :debug  =&gt;  true,</span>
 
   <span class="c1"># tls default: true</span>
-  <span class="c1"># :tls =&gt; false,</span>
+  <span class="ss">:tls</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
 
   <span class="c1"># damone default: false</span>
   <span class="c1"># :daemon =&gt; true,</span>
@@ -120,15 +123,14 @@
 <a name="create-directory-and-files" class="anchor" href="#create-directory-and-files"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
 
 <div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl<span class="o">}</span>
-cp ssl.key ssl.crt /usr/local/trusterd/ssl/.
-cp bin/trusterd.rb /usr/local/trusterd/bin/.
+cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
 <span class="nb">echo </span>hello trusterd world. &gt; /usr/local/trusterd/htdocs/index.html
 </pre></div>
 
 <h4>
 <a name="run-trusterd" class="anchor" href="#run-trusterd"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
 
-<div class="highlight highlight-bash"><pre>mruby /usr/local/trusterd/bin/trusterd.rb
+<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
 </pre></div>
 
 <h2>
