@@ -9,6 +9,10 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - more customizable Web server configration
 
 ## Quick install
+#### Download trusterd
+```
+git clone https://github.com/matsumoto-r/trusterd.git
+```
 #### Build trusterd
 ```bash
 sh build.sh
