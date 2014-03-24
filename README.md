@@ -68,10 +68,12 @@ s = HTTP2::Server.new({
 #
 # }
 
-#s.set_map_to_strage_cb {
-#  p "callback bloack at set_map_to_strage_cb"
-#  p "rquest uri: #{s.request.uri}"
-#}
+# s.set_logging_cb {
+# 
+#   p "callback block after send response"
+#   p "response file: #{s.request.filename}"
+# 
+# }
 
 s.run
 ```
