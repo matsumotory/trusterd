@@ -5,7 +5,7 @@ s = HTTP2::Server.new({
   #:key            => "#{root_dir}/ssl/server.key",
   #:crt            => "#{root_dir}/ssl/server.crt",
   :document_root  => "#{root_dir}/htdocs",
-  :server_name    => "mruby-http2 server",
+  :server_name    => "Trusterd",
 
   #
   # optional config
