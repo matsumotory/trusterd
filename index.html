@@ -67,7 +67,7 @@ sh build.sh
 <p>then, output <code>bin/trusterd</code></p>
 
 <h4>
-<a name="write-config-bintrusterdconf" class="anchor" href="#write-config-bintrusterdconf"><span class="octicon octicon-link"></span></a>Write config <code>bin/trusterd.conf</code>
+<a name="write-config-bintrusterdconfrb" class="anchor" href="#write-config-bintrusterdconfrb"><span class="octicon octicon-link"></span></a>Write config <code>bin/trusterd.conf.rb</code>
 </h4>
 
 <div class="highlight highlight-ruby"><pre><span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
@@ -117,21 +117,27 @@ sh build.sh
 <span class="c1">#</span>
 <span class="c1"># }</span>
 
+<span class="c1">#s.set_map_to_strage_cb {</span>
+<span class="c1">#  p "callback bloack at set_map_to_strage_cb"</span>
+<span class="c1">#  p "rquest uri: #{s.request.uri}"</span>
+<span class="c1">#}</span>
+
 <span class="n">s</span><span class="o">.</span><span class="n">run</span>
 </pre></div>
 
 <h4>
 <a name="create-directory-and-files" class="anchor" href="#create-directory-and-files"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
 
-<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl<span class="o">}</span>
-cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
+<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl,conf<span class="o">}</span>
+cp bin/trusterd /usr/local/trusterd/bin/.
+cp bin/trusterd.conf.rb /usr/local/trusterd/conf/.
 <span class="nb">echo </span>hello trusterd world. &gt; /usr/local/trusterd/htdocs/index.html
 </pre></div>
 
 <h4>
 <a name="run-trusterd" class="anchor" href="#run-trusterd"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
 
-<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
+<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf.rb
 </pre></div>
 
 <h4>
