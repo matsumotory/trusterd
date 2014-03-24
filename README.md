@@ -20,8 +20,8 @@ root_dir = "/usr/local/trusterd"
 
 s = HTTP2::Server.new({
   :port           => 8080,
-  :key            => "#{root_dir}/ssl/server.key",
-  :crt            => "#{root_dir}/ssl/server.crt",
+  #:key            => "#{root_dir}/ssl/server.key",
+  #:crt            => "#{root_dir}/ssl/server.crt",
   :document_root  => "#{root_dir}/htdocs",
   :server_name    => "mruby-http2 server",
 
@@ -33,7 +33,7 @@ s = HTTP2::Server.new({
   # :debug  =>  true,
 
   # tls default: true
-  # :tls => false,
+  :tls => false,
 
   # damone default: false
   # :daemon => true,
@@ -68,7 +68,6 @@ s.run
 #### Create directory and files
 ```bash
 mkdir -p /usr/local/trusterd/{bin,htdocs,ssl}
-cp ssl.key ssl.crt /usr/local/trusterd/ssl/.
 cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
 echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```

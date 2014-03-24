@@ -2,7 +2,8 @@
 
 set -e
 
-git clone https://github.com/mruby/mruby.git
+git submodule init
+git submodule update
 cp -f build_config.rb mruby/.
 cd mruby
 rake
