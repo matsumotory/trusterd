@@ -15,6 +15,7 @@ git clone https://github.com/matsumoto-r/trusterd.git
 ```
 #### Build trusterd
 ```bash
+cd trusterd
 sh build.sh
 ```
 then, output ``bin/trusterd``
