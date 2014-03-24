@@ -19,7 +19,7 @@ cd trusterd
 sh build.sh
 ```
 then, output ``bin/trusterd``
-#### Write config ``bin/trusterd.conf``
+#### Write config ``bin/trusterd.conf.rb``
 ```ruby
 root_dir = "/usr/local/trusterd"
 
@@ -68,17 +68,23 @@ s = HTTP2::Server.new({
 #
 # }
 
+#s.set_map_to_strage_cb {
+#  p "callback bloack at set_map_to_strage_cb"
+#  p "rquest uri: #{s.request.uri}"
+#}
+
 s.run
 ```
 #### Create directory and files
 ```bash
-mkdir -p /usr/local/trusterd/{bin,htdocs,ssl}
-cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
+mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
+cp bin/trusterd /usr/local/trusterd/bin/.
+cp bin/trusterd.conf.rb /usr/local/trusterd/conf/.
 echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
 #### Run trusterd
 ```bash
-/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
+/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf.rb
 ```
 #### Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
