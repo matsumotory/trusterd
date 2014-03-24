@@ -134,6 +134,15 @@ cp bin/trusterd bin/trusterd.conf /usr/local/trusterd/bin/.
 <div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/bin/trusterd.conf
 </pre></div>
 
+<h4>
+<a name="check-by-nghttp" class="anchor" href="#check-by-nghttp"><span class="octicon octicon-link"></span></a>Check by nghttp</h4>
+
+<p><a href="https://github.com/tatsuhiro-t/nghttp2#nghttp---client">nghttp</a> is a client tool for HTTP/2.</p>
+
+<pre><code>$ nghttp http://127.0.0.1:8080/index.html
+hello trusterd world.
+</code></pre>
+
 <h2>
 <a name="peformance" class="anchor" href="#peformance"><span class="octicon octicon-link"></span></a>Peformance</h2>
 
