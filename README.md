@@ -24,6 +24,7 @@ then, output ``bin/trusterd``
 root_dir = "/usr/local/trusterd"
 
 s = HTTP2::Server.new({
+
   :port           => 8080,
   #:key            => "#{root_dir}/ssl/server.key",
   #:crt            => "#{root_dir}/ssl/server.crt",
@@ -45,6 +46,7 @@ s = HTTP2::Server.new({
 
   # callback default: false
   # :callback => true,
+
 })
 
 #
@@ -68,11 +70,14 @@ s = HTTP2::Server.new({
 #
 # }
 
+#
+# f = File.open "#{root_dir}/logs/access.log", "a"
+#
 # s.set_logging_cb {
 # 
 #   p "callback block after send response"
-#   p "response file: #{s.request.filename}"
-# 
+#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"
+#
 # }
 
 s.run
@@ -81,7 +86,7 @@ s.run
 ```bash
 mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
 cp bin/trusterd /usr/local/trusterd/bin/.
-cp bin/trusterd.conf.rb /usr/local/trusterd/conf/.
+cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
 echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
 #### Run trusterd
