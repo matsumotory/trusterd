@@ -73,6 +73,7 @@ sh build.sh
 <div class="highlight highlight-ruby"><pre><span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="no">HTTP2</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
+
   <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">,</span>
   <span class="c1">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
   <span class="c1">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
@@ -94,6 +95,7 @@ sh build.sh
 
   <span class="c1"># callback default: false</span>
   <span class="c1"># :callback =&gt; true,</span>
+
 <span class="p">})</span>
 
 <span class="c1">#</span>
@@ -117,11 +119,14 @@ sh build.sh
 <span class="c1">#</span>
 <span class="c1"># }</span>
 
+<span class="c1">#</span>
+<span class="c1"># f = File.open "#{root_dir}/logs/access.log", "a"</span>
+<span class="c1">#</span>
 <span class="c1"># s.set_logging_cb {</span>
 <span class="c1"># </span>
 <span class="c1">#   p "callback block after send response"</span>
-<span class="c1">#   p "response file: #{s.request.filename}"</span>
-<span class="c1"># </span>
+<span class="c1">#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"</span>
+<span class="c1">#</span>
 <span class="c1"># }</span>
 
 <span class="n">s</span><span class="o">.</span><span class="n">run</span>
@@ -132,7 +137,7 @@ sh build.sh
 
 <div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl,conf<span class="o">}</span>
 cp bin/trusterd /usr/local/trusterd/bin/.
-cp bin/trusterd.conf.rb /usr/local/trusterd/conf/.
+cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
 <span class="nb">echo </span>hello trusterd world. &gt; /usr/local/trusterd/htdocs/index.html
 </pre></div>
 
