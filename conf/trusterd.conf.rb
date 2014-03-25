@@ -1,11 +1,12 @@
 root_dir = "/usr/local/trusterd"
 
 s = HTTP2::Server.new({
+
   :port           => 8080,
   #:key            => "#{root_dir}/ssl/server.key",
   #:crt            => "#{root_dir}/ssl/server.crt",
   :document_root  => "#{root_dir}/htdocs",
-  :server_name    => "Trusterd",
+  :server_name    => "mruby-http2 server",
 
   #
   # optional config
@@ -15,13 +16,14 @@ s = HTTP2::Server.new({
   # :debug  =>  true,
 
   # tls default: true
-  # :tls => false,
+  :tls => false,
 
   # damone default: false
   # :daemon => true,
 
   # callback default: false
   # :callback => true,
+
 })
 
 #
@@ -41,8 +43,19 @@ s = HTTP2::Server.new({
 #
 #   # you can use regexp if you link regexp mrbgem.
 #   # Or, you can use KVS like mruby-redis or mruby-
-#   # vedis and so on. 
+#   # vedis and so on.
+#
+# }
+
+#
+# f = File.open "#{root_dir}/logs/access.log", "a"
+#
+# s.set_logging_cb {
+#
+#   p "callback block after send response"
+#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"
 #
 # }
 
 s.run
+
