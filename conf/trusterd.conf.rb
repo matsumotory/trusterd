@@ -24,6 +24,8 @@ s = HTTP2::Server.new({
   # callback default: false
   # :callback => true,
 
+  # connection record default: true
+  # :connection_record => false,
 })
 
 #
