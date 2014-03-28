@@ -137,6 +137,17 @@ status codes: 5000000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 250069900 bytes total, 20067800 bytes headers, 110000000 bytes data
 ```
 Please see [details](https://gist.github.com/matsumoto-r/9702123).
+## Memory
+#### Startup
+```
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root     61440  0.2  0.0  46668  2292 pts/4    S+   16:20   0:00 /usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
+```
+#### After processing ten million request
+```
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root     61446 19.5  0.0  49184  5272 pts/4    S+   16:34   0:47 /usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
+```
 ## License
 under the MIT License:
 
