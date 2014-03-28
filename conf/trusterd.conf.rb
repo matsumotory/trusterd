@@ -35,7 +35,7 @@ s = HTTP2::Server.new({
 
   :port           => 8080,
   :document_root  => "#{root_dir}/htdocs",
-  :server_name    => "mruby-http2 server",
+  :server_name    => "Trusterd",
 
   # required when tls option is true.
   # tls option is true by default.
