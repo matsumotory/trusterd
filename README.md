@@ -19,7 +19,7 @@ cd trusterd
 sh build.sh
 ```
 then, output ``bin/trusterd``
-#### Write config ``bin/trusterd.conf.rb``
+#### Write config ``conf/trusterd.conf.rb``
 ```ruby
 root_dir = "/usr/local/trusterd"
 
