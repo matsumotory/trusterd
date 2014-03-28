@@ -115,12 +115,11 @@ $ nghttp http://127.0.0.1:8080/index.html
 hello trusterd world.
 ```
 ## Peformance
-#####Max performance(2014/03/24): 284681 req/s
-[h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
+Current mruby-http2 commit: 49d213b0aeb82e6bc72169a0a43bafbaf909ee2a
 ```
-$ h2load -n1000000 -c100 -m100 http://127.0.0.1:8080/index.html
+$ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8080/index.html
 starting benchmark...
-spawning thread #0: 100 concurrent clients, 1000000 total requests
+spawning thread #0: 100 concurrent clients, 5000000 total requests
 progress: 10% done
 progress: 20% done
 progress: 30% done
@@ -132,11 +131,10 @@ progress: 80% done
 progress: 90% done
 progress: 100% done
 
-finished in 3 sec, 512 millisec and 701 microsec, 284681 req/s, 6950 kbytes/s
-requests: 1000000 total, 1000000 started, 1000000 done, 1000000 succeeded, 0 failed, 0 errored
-status codes: 1000000 2xx, 0 3xx, 0 4xx, 0 5xx
-traffic: 49003700 bytes total, 1600 bytes headers, 25000000 bytes data
-
+finished in 21 sec, 840 millisec and 430 microsec, 228933 req/s, 5815 kbytes/s
+requests: 5000000 total, 5000000 started, 5000000 done, 5000000 succeeded, 0 failed, 0 errored
+status codes: 5000000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 250069900 bytes total, 20067800 bytes headers, 110000000 bytes data
 ```
 Please see [details](https://gist.github.com/matsumoto-r/9702123).
 ## License
