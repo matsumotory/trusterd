@@ -25,6 +25,10 @@
 # [ MIT license: http://www.opensource.org/licenses/mit-license.php ]
 #
 
+SERVER_NAME = "Trusterd"
+SERVER_VERSION = "0.0.1"
+SERVER_DESCRIPTION = "#{SERVER_NAME}/#{SERVER_VERSION}"
+
 root_dir = "/usr/local/trusterd"
 
 s = HTTP2::Server.new({
@@ -35,7 +39,7 @@ s = HTTP2::Server.new({
 
   :port           => 8080,
   :document_root  => "#{root_dir}/htdocs",
-  :server_name    => "Trusterd",
+  :server_name    => SERVER_DESCRIPTION,
 
   # required when tls option is true.
   # tls option is true by default.
