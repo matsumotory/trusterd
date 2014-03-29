@@ -177,7 +177,8 @@ hello trusterd world.
 <h2>
 <a name="peformance" class="anchor" href="#peformance"><span class="octicon octicon-link"></span></a>Peformance</h2>
 
-<p>Current mruby-http2 commit: 49d213b0aeb82e6bc72169a0a43bafbaf909ee2a</p>
+<p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.
+Current mruby-http2 commit: 49d213b0aeb82e6bc72169a0a43bafbaf909ee2a</p>
 
 <pre><code>$ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8080/index.html
 starting benchmark...
