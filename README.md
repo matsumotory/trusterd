@@ -118,6 +118,7 @@ $ nghttp http://127.0.0.1:8080/index.html
 hello trusterd world.
 ```
 ## Peformance
+[h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
 Current mruby-http2 commit: 49d213b0aeb82e6bc72169a0a43bafbaf909ee2a
 ```
 $ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8080/index.html
