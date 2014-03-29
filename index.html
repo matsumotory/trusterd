@@ -70,7 +70,11 @@ sh build.sh
 <a name="write-config-conftrusterdconfrb" class="anchor" href="#write-config-conftrusterdconfrb"><span class="octicon octicon-link"></span></a>Write config <code>conf/trusterd.conf.rb</code>
 </h4>
 
-<div class="highlight highlight-ruby"><pre><span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
+<div class="highlight highlight-ruby"><pre><span class="no">SERVER_NAME</span> <span class="o">=</span> <span class="s2">"Trusterd"</span>
+<span class="no">SERVER_VERSION</span> <span class="o">=</span> <span class="s2">"0.0.1"</span>
+<span class="no">SERVER_DESCRIPTION</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="no">SERVER_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="no">SERVER_VERSION</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
 
 <span class="n">s</span> <span class="o">=</span> <span class="no">HTTP2</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
 
@@ -80,13 +84,12 @@ sh build.sh
 
   <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">,</span>
   <span class="ss">:document_root</span>  <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/htdocs"</span><span class="p">,</span>
-  <span class="ss">:server_name</span>    <span class="o">=&gt;</span> <span class="s2">"mruby-http2 server"</span><span class="p">,</span>
+  <span class="ss">:server_name</span>    <span class="o">=&gt;</span> <span class="no">SERVER_DESCRIPTION</span><span class="p">,</span>
 
   <span class="c1"># required when tls option is true.</span>
   <span class="c1"># tls option is true by default.</span>
-
-  <span class="ss">:key</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.key"</span><span class="p">,</span>
-  <span class="ss">:crt</span>            <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/ssl/server.crt"</span><span class="p">,</span>
+  <span class="c1">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
+  <span class="c1">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
 
   <span class="c1"># listen ip address</span>
   <span class="c1"># default value is 0.0.0.0</span>
@@ -100,7 +103,7 @@ sh build.sh
   <span class="c1"># :debug  =&gt;  true,</span>
 
   <span class="c1"># tls default: true</span>
-  <span class="c1"># :tls =&gt; false,</span>
+  <span class="ss">:tls</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
 
   <span class="c1"># damone default: false</span>
   <span class="c1"># :daemon =&gt; true,</span>
