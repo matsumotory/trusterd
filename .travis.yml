@@ -1,0 +1,14 @@
+language: c
+compiler:
+  - gcc
+  - clang
+before_install:
+  - sudo apt-get -qq update
+install:
+  - sudo apt-get -qq install rake bison git gperf
+script:
+  - sh build.sh
+notifications:
+  webhooks:
+    - secure: "P9iIOhAPmxIJnNqwjUfdxpSocYlOb1w6AZcA51xJ/1troQKyVaeK4Qxw1qbml8/UqjM22JKTmpTq7yzPg6LPaoNWTFGK3GC7oHRmnb8+WZOSxSYhU1nYXDx/EvlK1bmFPbB2+ZGgkac0CmgtkAk02x4yZ6TKOYFzxG4xzGOmWIY="
+
