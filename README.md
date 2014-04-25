@@ -1,4 +1,4 @@
-# Trusterd HTTP/2 Web Server
+# Trusterd HTTP/2 Web Server  [![Build Status](https://travis-ci.org/matsumoto-r/trusterd.png?branch=master)](https://travis-ci.org/matsumoto-r/trusterd)
 Trusterd is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
 
 ## Benchmark
@@ -84,7 +84,7 @@ s = HTTP2::Server.new({
 #
 #   # you can use regexp if you link regexp mrbgem.
 #   # Or, you can use KVS like mruby-redis or mruby-
-#   # vedis and so on. 
+#   # vedis and so on.
 #
 # }
 
@@ -92,7 +92,7 @@ s = HTTP2::Server.new({
 # f = File.open "#{root_dir}/logs/access.log", "a"
 #
 # s.set_logging_cb {
-# 
+#
 #   p "callback block after send response"
 #   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"
 #
