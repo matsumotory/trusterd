@@ -32,7 +32,8 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a name="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
+<a name="trusterd-http2-web-server--" class="anchor" href="#trusterd-http2-web-server--"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server  <a href="https://travis-ci.org/matsumoto-r/trusterd"><img src="https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master" alt="Build Status"></a>
+</h1>
 
 <p>Trusterd is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
 
@@ -133,7 +134,7 @@ sh build.sh
 <span class="c1">#</span>
 <span class="c1">#   # you can use regexp if you link regexp mrbgem.</span>
 <span class="c1">#   # Or, you can use KVS like mruby-redis or mruby-</span>
-<span class="c1">#   # vedis and so on. </span>
+<span class="c1">#   # vedis and so on.</span>
 <span class="c1">#</span>
 <span class="c1"># }</span>
 
@@ -141,7 +142,7 @@ sh build.sh
 <span class="c1"># f = File.open "#{root_dir}/logs/access.log", "a"</span>
 <span class="c1">#</span>
 <span class="c1"># s.set_logging_cb {</span>
-<span class="c1"># </span>
+<span class="c1">#</span>
 <span class="c1">#   p "callback block after send response"</span>
 <span class="c1">#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"</span>
 <span class="c1">#</span>
