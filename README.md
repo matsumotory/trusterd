@@ -7,6 +7,7 @@ Please see [benchmark link](https://gist.github.com/matsumoto-r/9702123).
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
 - more customizable Web server configration
+- Server Push
 
 ## Quick install
 #### Download trusterd
