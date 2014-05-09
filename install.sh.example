@@ -1,0 +1,7 @@
+#/bin/bash
+
+mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
+cp bin/trusterd /usr/local/trusterd/bin/.
+cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
+echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
+
