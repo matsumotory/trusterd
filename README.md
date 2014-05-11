@@ -87,6 +87,12 @@ s = HTTP2::Server.new({
 #   # Or, you can use KVS like mruby-redis or mruby-
 #   # vedis and so on.
 #
+#   # Experiment: reverse proxy config
+#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1
+#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream
+#   s.upstream = "http://127.0.0.1:8001/"
+#   s.upstream_uri = "/upstream.html"
+#
 # }
 
 #
