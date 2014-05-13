@@ -49,6 +49,7 @@
 
 <ul>
 <li>more customizable Web server configration</li>
+<li>Server Push</li>
 </ul><h2>
 <a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick install</h2>
 
@@ -135,6 +136,21 @@ sh build.sh
 <span class="c1">#   # you can use regexp if you link regexp mrbgem.</span>
 <span class="c1">#   # Or, you can use KVS like mruby-redis or mruby-</span>
 <span class="c1">#   # vedis and so on.</span>
+<span class="c1">#</span>
+<span class="c1">#   # Experiment: reverse proxy config</span>
+<span class="c1">#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1</span>
+<span class="c1">#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream</span>
+<span class="c1">#</span>
+<span class="c1">#   if s.request.uri =~ /^\/upstream(\/.*)/                                       </span>
+<span class="c1">#     s.upstream_uri = $1                                                         </span>
+<span class="c1">#     s.upstream = “http://127.0.0.1“                                             </span>
+<span class="c1">#   end</span>
+<span class="c1">#</span>
+<span class="c1">#   # Expretiment: dynamic content with mruby</span>
+<span class="c1">#   if s.request.filename =~ /^.*\.rb$/</span>
+<span class="c1">#     s.enable_mruby                     </span>
+<span class="c1">#   end</span>
+<span class="c1">#</span>
 <span class="c1">#</span>
 <span class="c1"># }</span>
 
