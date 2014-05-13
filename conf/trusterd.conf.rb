@@ -94,10 +94,16 @@ s = HTTP2::Server.new({
 #   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1
 #   # TODO: reciev/send headers transparently and support HTTP/2 at upstream
 #
-#   s.upstream = "http://127.0.0.1:8001/"
-#   s.upstream_uri = "/upstream.html"
+#   if s.request.uri =~ /^\/upstream(\/.*)/                                       
+#     s.upstream_uri = $1                                                         
+#     s.upstream = “http://127.0.0.1“                                             
+#   end
 #
-
+#   # Expretiment: dynamic content with mruby
+#   if s.request.filename =~ /^.*\.rb$/
+#     s.enable_mruby                     
+#   end
+#
 #
 # }
 
