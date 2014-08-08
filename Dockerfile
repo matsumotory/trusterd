@@ -60,7 +60,7 @@ RUN cd /usr/local/src/ && git clone git://github.com/matsumoto-r/trusterd.git
 RUN cd /usr/local/src/trusterd && sh build.sh
 RUN cd /usr/local/src/trusterd && bash install.sh.example
 
-EXPOSE 80
+EXPOSE 8080
 
 ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
 
