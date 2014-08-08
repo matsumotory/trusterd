@@ -64,5 +64,6 @@ EXPOSE 8080
 
 ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
 ADD docker/htdocs /usr/local/trusterd/htdocs
+RUN useradd trusterd
 
-CMD ["sudo", "-u", "daemon", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
+CMD ["sudo", "-u", "trusterd", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
