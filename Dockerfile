@@ -64,6 +64,14 @@ EXPOSE 8080
 
 ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
 ADD docker/htdocs /usr/local/trusterd/htdocs
-RUN chmod 755 /usr /usr/local
 
-CMD ["sudo", "-u", "daemon", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
+# RUN chmod 755 /usr /usr/local
+# CMD ["sudo", "-u", "daemon", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
+#
+# Docker Hub Bug? /usr/local permission is invalid
+#
+# d--x--x---  19 root root 4096 Aug  8 15:08 local
+#
+# exec root owner for now
+
+CMD ["/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
