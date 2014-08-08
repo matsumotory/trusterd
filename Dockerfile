@@ -63,5 +63,6 @@ RUN cd /usr/local/src/trusterd && bash install.sh.example
 EXPOSE 8080
 
 ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
+ADD docker/htdocs/index.html /usr/local/trusterd/htdocs/index.html
 
 CMD ["sudo", "-u", "daemon", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
