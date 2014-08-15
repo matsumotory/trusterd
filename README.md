@@ -10,6 +10,34 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - Server Push
 
 ## Quick install
+### Using Docker
+#### Using Docker image
+##### Pulling
+```
+docker pull matsumotory/trusterd
+```
+##### Running
+```
+docker run -d -p 8080:8080 matsumotory/trusterd
+```
+##### Access
+```
+nghttp -v http://127.0.0.1:8080/index.html
+```
+#### Docker Image Build
+##### Building
+```
+docker build -t local/trusterd .
+```
+##### Runing
+```
+docker run -d -p 8080:8080 local/trusterd
+```
+##### Access
+```
+nghttp -v http://127.0.0.1:8080/index.html
+```
+### Manual Build
 #### Download trusterd
 ```
 git clone https://github.com/matsumoto-r/trusterd.git
@@ -91,14 +119,14 @@ s = HTTP2::Server.new({
 #   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1
 #   # TODO: reciev/send headers transparently and support HTTP/2 at upstream
 #
-#   if s.request.uri =~ /^\/upstream(\/.*)/                                       
-#     s.upstream_uri = $1                                                         
-#     s.upstream = “http://127.0.0.1“                                             
+#   if s.request.uri =~ /^\/upstream(\/.*)/
+#     s.upstream_uri = $1
+#     s.upstream = “http://127.0.0.1“
 #   end
 #
 #   # Expretiment: dynamic content with mruby
 #   if s.request.filename =~ /^.*\.rb$/
-#     s.enable_mruby                     
+#     s.enable_mruby
 #   end
 #
 #
