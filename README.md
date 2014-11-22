@@ -37,6 +37,9 @@ docker run -d -p 8080:8080 local/trusterd
 ```
 nghttp -v http://127.0.0.1:8080/index.html
 ```
+
+---
+
 ### Manual Build
 #### Download trusterd
 ```
