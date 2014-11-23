@@ -10,36 +10,6 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - Server Push
 
 ## Quick install
-### Using Docker
-#### Using Docker image
-##### Pulling
-```
-docker pull matsumotory/trusterd
-```
-##### Running
-```
-docker run -d -p 8080:8080 matsumotory/trusterd
-```
-##### Access
-```
-nghttp -v http://127.0.0.1:8080/index.html
-```
-#### Docker Image Build
-##### Building
-```
-docker build -t local/trusterd .
-```
-##### Runing
-```
-docker run -d -p 8080:8080 local/trusterd
-```
-##### Access
-```
-nghttp -v http://127.0.0.1:8080/index.html
-```
-
----
-
 ### Manual Build
 #### Download trusterd
 ```
@@ -163,6 +133,36 @@ echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
 ```
 $ nghttp http://127.0.0.1:8080/index.html
 hello trusterd world.
+```
+
+----
+
+### Using Docker
+#### Using Docker image
+##### Pulling
+```
+docker pull matsumotory/trusterd
+```
+##### Running
+```
+docker run -d -p 8080:8080 matsumotory/trusterd
+```
+##### Access
+```
+nghttp -v http://127.0.0.1:8080/index.html
+```
+#### Docker Image Build
+##### Building
+```
+docker build -t local/trusterd .
+```
+##### Runing
+```
+docker run -d -p 8080:8080 local/trusterd
+```
+##### Access
+```
+nghttp -v http://127.0.0.1:8080/index.html
 ```
 ## Peformance
 [h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
