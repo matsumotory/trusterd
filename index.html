@@ -165,6 +165,11 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c">#</span>
 <span class="pl-c"># }</span>
 
+<span class="pl-c"># s.set_content_cb {</span>
+<span class="pl-c">#   s.rputs "hello trusterd world from cb"</span>
+<span class="pl-c">#   s.echo "+ hello trusterd world from cb with \n"</span>
+<span class="pl-c"># }</span>
+
 <span class="pl-c">#</span>
 <span class="pl-c"># f = File.open "#{root_dir}/logs/access.log", "a"</span>
 <span class="pl-c">#</span>
