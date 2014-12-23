@@ -6,9 +6,6 @@
 
 Trusterd is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
 
-## Benchmark
-Please see [benchmark link](https://gist.github.com/matsumoto-r/9702123).
-
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
 - more customizable Web server configration
@@ -239,8 +236,6 @@ requests: 2000000 total, 2000000 started, 2000000 done, 2000000 succeeded, 0 fai
 status codes: 2000000 2xx, 0 3xx, 0 4xx, 0 5xx
 traffic: 98163360 bytes total, 18151360 bytes headers, 44000000 bytes data
 ```
-
-Please see [details](https://gist.github.com/matsumoto-r/9702123).
 
 ## Memory
 #### Startup
