@@ -181,9 +181,35 @@ nghttp -v http://127.0.0.1:8080/index.html
 ## Peformance
 ### Machine
 
-- Ubuntu14.04 on VMWare 
+- Ubuntu14.04 on VMWare
 - Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz 4core
 - Memory 8GB
+
+### Config
+#### trusterd.conf.rb
+```ruby
+SERVER_NAME = "Trusterd"
+SERVER_VERSION = "0.0.1"
+SERVER_DESCRIPTION = "#{SERVER_NAME}/#{SERVER_VERSION}"
+
+root_dir = "/usr/local/trusterd"
+
+s = HTTP2::Server.new({
+
+  :port           => 8081,
+  :document_root  => "#{root_dir}/htdocs",
+  :server_name    => SERVER_DESCRIPTION,
+  :tls            => false,
+
+})
+
+s.run
+```
+
+#### index.html
+```html
+hello trusterd world.
+```
 
 ### Benchmark
 
