@@ -25,6 +25,7 @@ MRuby::Build.new do |conf|
   conf.gem :github => 'iij/mruby-dir'
   conf.gem :github => 'iij/mruby-socket'
   conf.gem :github => 'mattn/mruby-onig-regexp'
+  conf.gem :github => 'mattn/mruby-json'
 
   # include the default GEMs
   conf.gembox 'full-core'
