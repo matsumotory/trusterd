@@ -41,11 +41,6 @@
 <p>Trusterd is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
 
 <h2>
-<a id="benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h2>
-
-<p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">benchmark link</a>.</p>
-
-<h2>
 <a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
 
 <p>This is a very early version, please test and report errors. Wellcome pull-request.</p>
@@ -293,15 +288,19 @@ s.run</pre></div>
 <div class="highlight highlight-html"><pre>hello trusterd world.</pre></div>
 
 <h3>
-<a id="benchmark-1" class="anchor" href="#benchmark-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h3>
+<a id="benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h3>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.</p>
 
-<p>Current mruby-http2 commit: 9a98d6b1058cad866682fa51cf2d4110630bed63</p>
+<ul>
+<li>current mruby-http2 commit: 9d3f7c26df0464da3ae2d4211188bfb789ceaab5</li>
+<li>use <a href="https://github.com/h2o/h2o#benchmarks">h2o/h2o benchmark parameter</a>
+</li>
+</ul>
 
-<pre><code>$ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8081/index.html
+<pre><code>$ h2load -c 500 -m 100 -n 2000000 http://127.0.0.1:8081/index.html
 starting benchmark...
-spawning thread #0: 100 concurrent clients, 5000000 total requests
+spawning thread #0: 500 concurrent clients, 2000000 total requests
 progress: 10% done
 progress: 20% done
 progress: 30% done
@@ -313,13 +312,11 @@ progress: 80% done
 progress: 90% done
 progress: 100% done
 
-finished in 32 sec, 773 millisec and 214 microsec, 152563 req/s, 8643 kbytes/s
-requests: 5000000 total, 5000000 started, 5000000 done, 5000000 succeeded, 0 failed, 0 errored
-status codes: 5000000 2xx, 0 3xx, 0 4xx, 0 5xx
-traffic: 290084100 bytes total, 45081700 bytes headers, 110000000 bytes data
+finished in 11 sec, 166 millisec and 830 microsec, 179101 req/s, 8584 kbytes/s
+requests: 2000000 total, 2000000 started, 2000000 done, 2000000 succeeded, 0 failed, 0 errored
+status codes: 2000000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 98163360 bytes total, 18151360 bytes headers, 44000000 bytes data
 </code></pre>
-
-<p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">details</a>.</p>
 
 <h2>
 <a id="memory" class="anchor" href="#memory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory</h2>
