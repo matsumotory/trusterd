@@ -258,10 +258,38 @@ hello trusterd world.
 <a id="machine" class="anchor" href="#machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine</h3>
 
 <ul>
-<li>Ubuntu14.04 on VMWare </li>
+<li>Ubuntu14.04 on VMWare</li>
 <li>Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz 4core</li>
 <li>Memory 8GB</li>
 </ul>
+
+<h3>
+<a id="config" class="anchor" href="#config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Config</h3>
+
+<h4>
+<a id="trusterdconfrb" class="anchor" href="#trusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>trusterd.conf.rb</h4>
+
+<div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
+<span class="pl-vo">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
+<span class="pl-vo">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s2">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s2">}</span></span><span class="pl-pds">"</span></span>
+
+root_dir <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
+
+s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-s3">Server</span>.<span class="pl-k">new</span>({
+
+  <span class="pl-c1">:port</span>           =&gt; <span class="pl-c1">8081</span>,
+  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2">root_dir</span><span class="pl-pse"><span class="pl-s2">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-vo">SERVER_DESCRIPTION</span>,
+  <span class="pl-c1">:tls</span>            =&gt; <span class="pl-c1">false</span>,
+
+})
+
+s.run</pre></div>
+
+<h4>
+<a id="indexhtml" class="anchor" href="#indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>index.html</h4>
+
+<div class="highlight highlight-html"><pre>hello trusterd world.</pre></div>
 
 <h3>
 <a id="benchmark-1" class="anchor" href="#benchmark-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h3>
