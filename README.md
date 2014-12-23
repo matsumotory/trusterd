@@ -99,9 +99,14 @@ s = HTTP2::Server.new({
 #     s.upstream = “http://127.0.0.1“
 #   end
 #
-#   # Expretiment: dynamic content with mruby
+#   # dynamic content with mruby
 #   if s.request.filename =~ /^.*\.rb$/
 #     s.enable_mruby
+#   end
+#
+#   # dynamic content with mruby sharing mrb_state
+#   if s.request.filename =~ /^.*\_shared.rb$/
+#     s.enable_shared_mruby
 #   end
 #
 #
