@@ -1,196 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Trusterd - HTTP/2 Web Server scripting with mruby by matsumoto-r</title>
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="javascripts/respond.js"></script>
-    <!--[if lt IE 9]>
-      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <!--[if lt IE 8]>
-    <link rel="stylesheet" href="stylesheets/ie.css">
-    <![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Trusterd - HTTP/2 Web Server scripting with mruby : ">
 
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Trusterd - HTTP/2 Web Server scripting with mruby</title>
   </head>
+
   <body>
-      <div id="header">
-        <nav>
-          <li class="fork"><a href="https://github.com/matsumoto-r/trusterd">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/tarball/master">TAR</a></li>
-          <li class="title">DOWNLOADS</li>
-        </nav>
-      </div><!-- end header -->
 
-    <div class="wrapper">
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/matsumoto-r/trusterd">View on GitHub</a>
 
-      <section>
-        <div id="title">
-          <h1>Trusterd - HTTP/2 Web Server scripting with mruby</h1>
-          <p></p>
-          <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></span>
-          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
-        </div>
+          <h1 id="project_title">Trusterd - HTTP/2 Web Server scripting with mruby</h1>
+          <h2 id="project_tagline"></h2>
 
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/matsumoto-r/trusterd/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/matsumoto-r/trusterd/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h1>
-<a name="trusterd-http2-web-server--" class="anchor" href="#trusterd-http2-web-server--"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server  <a href="https://travis-ci.org/matsumoto-r/trusterd"><img src="https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master" alt="Build Status"></a>
-</h1>
+<a id="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
+
+<p><a href="https://gitter.im/matsumoto-r/trusterd?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+<a href="https://travis-ci.org/matsumoto-r/trusterd"><img src="https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master" alt="Build Status"></a></p>
 
 <p>Trusterd is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
 
 <h2>
-<a name="benchmark" class="anchor" href="#benchmark"><span class="octicon octicon-link"></span></a>Benchmark</h2>
+<a id="benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h2>
 
 <p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">benchmark link</a>.</p>
 
 <h2>
-<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>TODO</h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
 
 <p>This is a very early version, please test and report errors. Wellcome pull-request.</p>
 
 <ul>
 <li>more customizable Web server configration</li>
 <li>Server Push</li>
-</ul><h2>
-<a name="quick-install" class="anchor" href="#quick-install"><span class="octicon octicon-link"></span></a>Quick install</h2>
+</ul>
+
+<h2>
+<a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick install</h2>
+
+<h3>
+<a id="manual-build" class="anchor" href="#manual-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Build</h3>
 
 <h4>
-<a name="download-trusterd" class="anchor" href="#download-trusterd"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
+<a id="download-trusterd" class="anchor" href="#download-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
 
 <pre><code>git clone https://github.com/matsumoto-r/trusterd.git
 </code></pre>
 
 <h4>
-<a name="build-trusterd" class="anchor" href="#build-trusterd"><span class="octicon octicon-link"></span></a>Build trusterd</h4>
+<a id="build-trusterd" class="anchor" href="#build-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build trusterd</h4>
 
-<div class="highlight highlight-bash"><pre><span class="nb">cd </span>trusterd
-sh build.sh
-</pre></div>
+<div class="highlight highlight-bash"><pre><span class="pl-s3">cd</span> trusterd
+sh build.sh</pre></div>
 
 <p>then, output <code>bin/trusterd</code></p>
 
 <h4>
-<a name="write-config-conftrusterdconfrb" class="anchor" href="#write-config-conftrusterdconfrb"><span class="octicon octicon-link"></span></a>Write config <code>conf/trusterd.conf.rb</code>
+<a id="write-config-conftrusterdconfrb" class="anchor" href="#write-config-conftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write config <code>conf/trusterd.conf.rb</code>
 </h4>
 
-<div class="highlight highlight-ruby"><pre><span class="no">SERVER_NAME</span> <span class="o">=</span> <span class="s2">"Trusterd"</span>
-<span class="no">SERVER_VERSION</span> <span class="o">=</span> <span class="s2">"0.0.1"</span>
-<span class="no">SERVER_DESCRIPTION</span> <span class="o">=</span> <span class="s2">"</span><span class="si">#{</span><span class="no">SERVER_NAME</span><span class="si">}</span><span class="s2">/</span><span class="si">#{</span><span class="no">SERVER_VERSION</span><span class="si">}</span><span class="s2">"</span>
+<div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
+<span class="pl-vo">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
+<span class="pl-vo">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s2">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s2">}</span></span><span class="pl-pds">"</span></span>
 
-<span class="n">root_dir</span> <span class="o">=</span> <span class="s2">"/usr/local/trusterd"</span>
+root_dir <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
 
-<span class="n">s</span> <span class="o">=</span> <span class="no">HTTP2</span><span class="o">::</span><span class="no">Server</span><span class="o">.</span><span class="n">new</span><span class="p">({</span>
+s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-s3">Server</span>.<span class="pl-k">new</span>({
 
-  <span class="c1">#</span>
-  <span class="c1"># required config</span>
-  <span class="c1">#</span>
+  <span class="pl-c">#</span>
+  <span class="pl-c"># required config</span>
+  <span class="pl-c">#</span>
 
-  <span class="ss">:port</span>           <span class="o">=&gt;</span> <span class="mi">8080</span><span class="p">,</span>
-  <span class="ss">:document_root</span>  <span class="o">=&gt;</span> <span class="s2">"</span><span class="si">#{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/htdocs"</span><span class="p">,</span>
-  <span class="ss">:server_name</span>    <span class="o">=&gt;</span> <span class="no">SERVER_DESCRIPTION</span><span class="p">,</span>
+  <span class="pl-c1">:port</span>           =&gt; <span class="pl-c1">8080</span>,
+  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2">root_dir</span><span class="pl-pse"><span class="pl-s2">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-vo">SERVER_DESCRIPTION</span>,
 
-  <span class="c1"># required when tls option is true.</span>
-  <span class="c1"># tls option is true by default.</span>
-  <span class="c1">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
-  <span class="c1">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
+  <span class="pl-c"># required when tls option is true.</span>
+  <span class="pl-c"># tls option is true by default.</span>
+  <span class="pl-c">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
+  <span class="pl-c">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
 
-  <span class="c1"># listen ip address</span>
-  <span class="c1"># default value is 0.0.0.0</span>
-  <span class="c1"># :server_host  =&gt; "127.0.0.1",</span>
+  <span class="pl-c"># listen ip address</span>
+  <span class="pl-c"># default value is 0.0.0.0</span>
+  <span class="pl-c"># :server_host  =&gt; "127.0.0.1",</span>
 
-  <span class="c1">#</span>
-  <span class="c1"># optional config</span>
-  <span class="c1">#</span>
+  <span class="pl-c">#</span>
+  <span class="pl-c"># optional config</span>
+  <span class="pl-c">#</span>
 
-  <span class="c1"># debug default: false</span>
-  <span class="c1"># :debug  =&gt;  true,</span>
+  <span class="pl-c"># debug default: false</span>
+  <span class="pl-c"># :debug  =&gt;  true,</span>
 
-  <span class="c1"># tls default: true</span>
-  <span class="ss">:tls</span> <span class="o">=&gt;</span> <span class="kp">false</span><span class="p">,</span>
+  <span class="pl-c"># tls default: true</span>
+  <span class="pl-c1">:tls</span> =&gt; <span class="pl-c1">false</span>,
 
-  <span class="c1"># damone default: false</span>
-  <span class="c1"># :daemon =&gt; true,</span>
+  <span class="pl-c"># damone default: false</span>
+  <span class="pl-c"># :daemon =&gt; true,</span>
 
-  <span class="c1"># callback default: false</span>
-  <span class="c1"># :callback =&gt; true,</span>
+  <span class="pl-c"># callback default: false</span>
+  <span class="pl-c"># :callback =&gt; true,</span>
 
-  <span class="c1"># connection_record defualt: true</span>
-  <span class="c1"># :connection_record =&gt; false,</span>
+  <span class="pl-c"># connection_record defualt: true</span>
+  <span class="pl-c"># :connection_record =&gt; false,</span>
 
-<span class="p">})</span>
+})
 
-<span class="c1">#</span>
-<span class="c1"># when :callback option is true,</span>
-<span class="c1">#</span>
-<span class="c1"># s.set_map_to_strage_cb {</span>
-<span class="c1">#</span>
-<span class="c1">#   p "callback bloack at set_map_to_strage_cb"</span>
-<span class="c1">#   p s.request.uri</span>
-<span class="c1">#   p s.request.filename</span>
-<span class="c1">#</span>
-<span class="c1">#   # location setting</span>
-<span class="c1">#   if s.request.uri == "/index.html"</span>
-<span class="c1">#     s.request.filename = "#{root_dir}/htdocs/hoge"</span>
-<span class="c1">#   end</span>
-<span class="c1">#   p s.request.filename</span>
-<span class="c1">#</span>
-<span class="c1">#   # you can use regexp if you link regexp mrbgem.</span>
-<span class="c1">#   # Or, you can use KVS like mruby-redis or mruby-</span>
-<span class="c1">#   # vedis and so on.</span>
-<span class="c1">#</span>
-<span class="c1">#   # Experiment: reverse proxy config</span>
-<span class="c1">#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1</span>
-<span class="c1">#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream</span>
-<span class="c1">#</span>
-<span class="c1">#   if s.request.uri =~ /^\/upstream(\/.*)/                                       </span>
-<span class="c1">#     s.upstream_uri = $1                                                         </span>
-<span class="c1">#     s.upstream = “http://127.0.0.1“                                             </span>
-<span class="c1">#   end</span>
-<span class="c1">#</span>
-<span class="c1">#   # Expretiment: dynamic content with mruby</span>
-<span class="c1">#   if s.request.filename =~ /^.*\.rb$/</span>
-<span class="c1">#     s.enable_mruby                     </span>
-<span class="c1">#   end</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1"># }</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># when :callback option is true,</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># s.set_map_to_strage_cb {</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   p "callback bloack at set_map_to_strage_cb"</span>
+<span class="pl-c">#   p s.request.uri</span>
+<span class="pl-c">#   p s.request.filename</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   # location setting</span>
+<span class="pl-c">#   if s.request.uri == "/index.html"</span>
+<span class="pl-c">#     s.request.filename = "#{root_dir}/htdocs/hoge"</span>
+<span class="pl-c">#   end</span>
+<span class="pl-c">#   p s.request.filename</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   # you can use regexp if you link regexp mrbgem.</span>
+<span class="pl-c">#   # Or, you can use KVS like mruby-redis or mruby-</span>
+<span class="pl-c">#   # vedis and so on.</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   # Experiment: reverse proxy config</span>
+<span class="pl-c">#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1</span>
+<span class="pl-c">#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   if s.request.uri =~ /^\/upstream(\/.*)/</span>
+<span class="pl-c">#     s.upstream_uri = $1</span>
+<span class="pl-c">#     s.upstream = “http://127.0.0.1“</span>
+<span class="pl-c">#   end</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   # dynamic content with mruby</span>
+<span class="pl-c">#   if s.request.filename =~ /^.*\.rb$/</span>
+<span class="pl-c">#     s.enable_mruby</span>
+<span class="pl-c">#   end</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   # dynamic content with mruby sharing mrb_state</span>
+<span class="pl-c">#   if s.request.filename =~ /^.*\_shared.rb$/</span>
+<span class="pl-c">#     s.enable_shared_mruby</span>
+<span class="pl-c">#   end</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># }</span>
 
-<span class="c1">#</span>
-<span class="c1"># f = File.open "#{root_dir}/logs/access.log", "a"</span>
-<span class="c1">#</span>
-<span class="c1"># s.set_logging_cb {</span>
-<span class="c1">#</span>
-<span class="c1">#   p "callback block after send response"</span>
-<span class="c1">#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"</span>
-<span class="c1">#</span>
-<span class="c1"># }</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># f = File.open "#{root_dir}/logs/access.log", "a"</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># s.set_logging_cb {</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   p "callback block after send response"</span>
+<span class="pl-c">#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># }</span>
 
-<span class="n">s</span><span class="o">.</span><span class="n">run</span>
-</pre></div>
+s.run</pre></div>
 
 <h4>
-<a name="create-directory-and-files" class="anchor" href="#create-directory-and-files"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
+<a id="create-directory-and-files" class="anchor" href="#create-directory-and-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
 
-<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/<span class="o">{</span>bin,htdocs,ssl,conf<span class="o">}</span>
+<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
 cp bin/trusterd /usr/local/trusterd/bin/.
 cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
-<span class="nb">echo </span>hello trusterd world. &gt; /usr/local/trusterd/htdocs/index.html
-</pre></div>
+<span class="pl-s3">echo</span> hello trusterd world. <span class="pl-k">&gt;</span> /usr/local/trusterd/htdocs/index.html</pre></div>
 
 <h4>
-<a name="run-trusterd" class="anchor" href="#run-trusterd"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
+<a id="run-trusterd" class="anchor" href="#run-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
 
-<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
-</pre></div>
+<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb</pre></div>
 
 <h4>
-<a name="check-by-nghttp" class="anchor" href="#check-by-nghttp"><span class="octicon octicon-link"></span></a>Check by nghttp</h4>
+<a id="check-by-nghttp" class="anchor" href="#check-by-nghttp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check by nghttp</h4>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#nghttp---client">nghttp</a> is a client tool for HTTP/2.</p>
 
@@ -198,8 +199,55 @@ cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
 hello trusterd world.
 </code></pre>
 
+<hr>
+
+<h3>
+<a id="using-docker" class="anchor" href="#using-docker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Docker</h3>
+
+<h4>
+<a id="using-docker-image" class="anchor" href="#using-docker-image" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using Docker image</h4>
+
+<h5>
+<a id="pulling" class="anchor" href="#pulling" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pulling</h5>
+
+<pre><code>docker pull matsumotory/trusterd
+</code></pre>
+
+<h5>
+<a id="running" class="anchor" href="#running" aria-hidden="true"><span class="octicon octicon-link"></span></a>Running</h5>
+
+<pre><code>docker run -d -p 8080:8080 matsumotory/trusterd
+</code></pre>
+
+<h5>
+<a id="access" class="anchor" href="#access" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access</h5>
+
+<pre><code>nghttp -v http://127.0.0.1:8080/index.html
+</code></pre>
+
+<h4>
+<a id="docker-image-build" class="anchor" href="#docker-image-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Docker Image Build</h4>
+
+<h5>
+<a id="building" class="anchor" href="#building" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building</h5>
+
+<pre><code>docker build -t local/trusterd .
+</code></pre>
+
+<h5>
+<a id="runing" class="anchor" href="#runing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runing</h5>
+
+<pre><code>docker run -d -p 8080:8080 local/trusterd
+</code></pre>
+
+<h5>
+<a id="access-1" class="anchor" href="#access-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Access</h5>
+
+<pre><code>nghttp -v http://127.0.0.1:8080/index.html
+</code></pre>
+
 <h2>
-<a name="peformance" class="anchor" href="#peformance"><span class="octicon octicon-link"></span></a>Peformance</h2>
+<a id="peformance" class="anchor" href="#peformance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Peformance</h2>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.
 Current mruby-http2 commit: 49d213b0aeb82e6bc72169a0a43bafbaf909ee2a</p>
@@ -227,24 +275,24 @@ traffic: 250069900 bytes total, 20067800 bytes headers, 110000000 bytes data
 <p>Please see <a href="https://gist.github.com/matsumoto-r/9702123">details</a>.</p>
 
 <h2>
-<a name="memory" class="anchor" href="#memory"><span class="octicon octicon-link"></span></a>Memory</h2>
+<a id="memory" class="anchor" href="#memory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory</h2>
 
 <h4>
-<a name="startup" class="anchor" href="#startup"><span class="octicon octicon-link"></span></a>Startup</h4>
+<a id="startup" class="anchor" href="#startup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Startup</h4>
 
 <pre><code>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root     62085  0.0  0.0  46668  2288 pts/4    S+   16:41   0:00  |   \_ /usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
 </code></pre>
 
 <h4>
-<a name="after-processing-ten-million-request" class="anchor" href="#after-processing-ten-million-request"><span class="octicon octicon-link"></span></a>After processing ten million request</h4>
+<a id="after-processing-ten-million-request" class="anchor" href="#after-processing-ten-million-request" aria-hidden="true"><span class="octicon octicon-link"></span></a>After processing ten million request</h4>
 
 <pre><code>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root     62085 63.3  0.0  49200  5144 pts/4    S+   16:41   0:47  |   \_ /usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
 </code></pre>
 
 <h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>under the MIT License:</p>
 
@@ -252,9 +300,17 @@ root     62085 63.3  0.0  49200  5144 pts/4    S+   16:41   0:47  |   \_ /usr/lo
 <li><a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></li>
 </ul>
       </section>
-
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Trusterd - HTTP/2 Web Server scripting with mruby maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
