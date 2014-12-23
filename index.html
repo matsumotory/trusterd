@@ -254,8 +254,21 @@ hello trusterd world.
 <h2>
 <a id="peformance" class="anchor" href="#peformance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Peformance</h2>
 
-<p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.
-Current mruby-http2 commit: 9a98d6b1058cad866682fa51cf2d4110630bed63</p>
+<h3>
+<a id="machine" class="anchor" href="#machine" aria-hidden="true"><span class="octicon octicon-link"></span></a>Machine</h3>
+
+<ul>
+<li>Ubuntu14.04 on VMWare </li>
+<li>Intel(R) Core(TM) i7-4770K CPU @ 3.50GHz 4core</li>
+<li>Memory 8GB</li>
+</ul>
+
+<h3>
+<a id="benchmark-1" class="anchor" href="#benchmark-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h3>
+
+<p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.</p>
+
+<p>Current mruby-http2 commit: 9a98d6b1058cad866682fa51cf2d4110630bed63</p>
 
 <pre><code>$ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8081/index.html
 starting benchmark...
