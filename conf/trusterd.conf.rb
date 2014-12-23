@@ -113,6 +113,11 @@ s = HTTP2::Server.new({
 #
 # }
 
+# s.set_content_cb {
+#   s.rputs "hello trusterd world from cb"
+#   s.echo "+ hello trusterd world from cb with \n"
+# }
+
 #
 # f = File.open "#{root_dir}/logs/access.log", "a"
 #
