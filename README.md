@@ -216,12 +216,13 @@ hello trusterd world.
 
 [h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
 
-Current mruby-http2 commit: 9d3f7c26df0464da3ae2d4211188bfb789ceaab5
+- current mruby-http2 commit: 9d3f7c26df0464da3ae2d4211188bfb789ceaab5
+- use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
 ```
-$ h2load -w30 -W30 -n5000000 -c100 -m 100 http://127.0.0.1:8081/index.html
+$ h2load -c 500 -m 100 -n 2000000 http://127.0.0.1:8081/index.html
 starting benchmark...
-spawning thread #0: 100 concurrent clients, 5000000 total requests
+spawning thread #0: 500 concurrent clients, 2000000 total requests
 progress: 10% done
 progress: 20% done
 progress: 30% done
@@ -233,10 +234,10 @@ progress: 80% done
 progress: 90% done
 progress: 100% done
 
-finished in 28 sec, 915 millisec and 94 microsec, 172920 req/s, 8276 kbytes/s
-requests: 5000000 total, 5000000 started, 5000000 done, 5000000 succeeded, 0 failed, 0 errored
-status codes: 5000000 2xx, 0 3xx, 0 4xx, 0 5xx
-traffic: 245072600 bytes total, 45070200 bytes headers, 110000000 bytes data
+finished in 11 sec, 166 millisec and 830 microsec, 179101 req/s, 8584 kbytes/s
+requests: 2000000 total, 2000000 started, 2000000 done, 2000000 succeeded, 0 failed, 0 errored
+status codes: 2000000 2xx, 0 3xx, 0 4xx, 0 5xx
+traffic: 98163360 bytes total, 18151360 bytes headers, 44000000 bytes data
 ```
 
 Please see [details](https://gist.github.com/matsumoto-r/9702123).
