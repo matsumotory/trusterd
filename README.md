@@ -204,16 +204,10 @@ s = HTTP2::Server.new({
 s.run
 ```
 
-#### index.html
-```html
-hello trusterd world.
-```
-
 ### Benchmarks
 
 [h2load](https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool) is a benchmark tool for HTTP/2.
 
-- current mruby-http2 commit: 9d3f7c26df0464da3ae2d4211188bfb789ceaab5
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
 __HTTP/2__
