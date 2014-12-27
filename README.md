@@ -11,6 +11,15 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 - more customizable Web server configration
 - Server Push
 
+## Requirements
+
+- [nghttp2 Requirements](https://github.com/tatsuhiro-t/nghttp2#requirements)
+- [mruby-http2 Requirements](https://github.com/matsumoto-r/mruby-http2/blob/master/mrbgem.rake#L6)
+- Trusterd Requirements
+  - libjemalloc-dev
+  - [qrintf-gcc](https://github.com/h2o/qrintf)
+  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
+
 ## Quick install
 ### Manual Build
 #### Download trusterd
