@@ -30,11 +30,13 @@ git clone https://github.com/matsumoto-r/trusterd.git
 ```
 #### Build trusterd
 ```bash
-cd trusterd
-sh build.sh
+make
 ```
-then, output ``bin/trusterd``
-#### Write config ``conf/trusterd.conf.rb``
+#### Install
+```bash
+make install INSTALL_PREFIX=/usr/local/trusterd
+```
+#### Write config ``$(INSTALL_PREFIX)/conf/trusterd.conf.rb``
 ```ruby
 SERVER_NAME = "Trusterd"
 SERVER_VERSION = "0.0.1"
@@ -140,16 +142,13 @@ s = HTTP2::Server.new({
 
 s.run
 ```
-#### Create directory and files
-```bash
-mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
-cp bin/trusterd /usr/local/trusterd/bin/.
-cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
-echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
-```
 #### Run trusterd
 ```bash
-/usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb
+make start INSTALL_PREFIX=/usr/local/trusterd
+```
+#### Clean
+```
+make clean
 ```
 #### Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
