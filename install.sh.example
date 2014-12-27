@@ -1,7 +1,0 @@
-#/bin/bash
-
-sudo mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
-sudo cp bin/trusterd /usr/local/trusterd/bin/.
-sudo cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
-sudo echo hello trusterd world. > /usr/local/trusterd/htdocs/index.html
-
