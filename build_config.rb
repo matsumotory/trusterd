@@ -51,9 +51,10 @@ MRuby::Build.new do |conf|
    conf.linker do |linker|
   #   linker.command = ENV['LD'] || 'gcc'
   #   linker.flags = [ENV['LDFLAGS'] || []]
-  #   linker.flags_before_libraries = []
-     linker.libraries << 'jemalloc'
+  #   linker.flags_before_libraries << '-ljemalloc'
+  #   linker.libraries << 'jemalloc'
   #   linker.flags_after_libraries = []
+     linker.flags_after_libraries << '-ljemalloc'
   #   linker.library_paths = []
   #   linker.option_library = '-l%s'
   #   linker.option_library_path = '-L%s'
