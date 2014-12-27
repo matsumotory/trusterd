@@ -11,6 +11,7 @@ install:
   - git clone https://github.com/h2o/qrintf.git
   - cd qrintf
   - sudo make install PREFIX=/usr/local
+  - cd ..
 script:
   - sh build.sh
 notifications:
