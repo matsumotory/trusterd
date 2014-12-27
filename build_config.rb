@@ -32,15 +32,15 @@ MRuby::Build.new do |conf|
   conf.gembox 'full-core'
 
   # C compiler settings
-  # conf.cc do |cc|
-  #   cc.command = ENV['CC'] || 'gcc'
+   conf.cc do |cc|
+     cc.command = ENV['CC'] || 'qrintf-gcc'
   #   cc.flags = [ENV['CFLAGS'] || %w()]
   #   cc.include_paths = ["#{root}/include"]
   #   cc.defines = %w(DISABLE_GEMS)
   #   cc.option_include_path = '-I%s'
   #   cc.option_define = '-D%s'
   #   cc.compile_options = "%{flags} -MMD -o %{outfile} -c %{infile}"
-  # end
+   end
 
   # mrbc settings
   # conf.mrbc do |mrbc|
