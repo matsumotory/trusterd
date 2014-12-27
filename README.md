@@ -227,7 +227,7 @@ __HTTP/2__
 |------------------------|------:|----------:|
 |nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) |116,285|59,330|
 |tiny-nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) |196,653|104,483|
-|[Trusterd @ bf94ddb](https://github.com/matsumoto-r/trusterd) + [mruby-http2 @ fabfa79](https://github.com/matsumoto-r/mruby-http2) |197,676|85,449|
+|[Trusterd @ a0b35de](https://github.com/matsumoto-r/trusterd) + [mruby-http2 @ 7d856cc](https://github.com/matsumoto-r/mruby-http2) |202,910|85,449|
 |[H2O @ 3de8911](https://github.com/h2o/h2o)           |216,664|     112,418|
 
 ## Memory
