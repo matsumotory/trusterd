@@ -8,6 +8,9 @@ before_install:
 install:
   - sudo apt-get -qq install rake bison git gperf g++-4.8 libjemalloc-dev
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
+  - git clone https://github.com/h2o/qrintf.git
+  - cd qrintf
+  - make install PREFIX=/usr/local
 script:
   - sh build.sh
 notifications:
