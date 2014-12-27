@@ -146,6 +146,13 @@ s.run
 ```bash
 make start INSTALL_PREFIX=/usr/local/trusterd
 ```
+
+or 
+
+```bash
+$(INSTALL_PREFIX)/bin/trusterd $(INSTALL_PREFIX)/conf/trusterd.conf.rb
+```
+
 #### Clean
 ```
 make clean
