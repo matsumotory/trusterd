@@ -13,7 +13,7 @@ install:
   - sudo make install PREFIX=/usr/local
   - cd ..
 script:
-  - sh build.sh
+  - make
 notifications:
   webhooks:
     - secure: "P9iIOhAPmxIJnNqwjUfdxpSocYlOb1w6AZcA51xJ/1troQKyVaeK4Qxw1qbml8/UqjM22JKTmpTq7yzPg6LPaoNWTFGK3GC7oHRmnb8+WZOSxSYhU1nYXDx/EvlK1bmFPbB2+ZGgkac0CmgtkAk02x4yZ6TKOYFzxG4xzGOmWIY="

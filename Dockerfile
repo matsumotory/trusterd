@@ -60,8 +60,7 @@ RUN cd /usr/local/src/ && git clone https://github.com/h2o/qrintf.git
 RUN cd /usr/local/src/qrintf && make install PREFIX=/usr/local
 
 RUN cd /usr/local/src/ && git clone git://github.com/matsumoto-r/trusterd.git
-RUN cd /usr/local/src/trusterd && sh build.sh
-RUN cd /usr/local/src/trusterd && bash install.sh.example
+RUN cd /usr/local/src/trusterd && make && make install INSTALL_PREFIX=/usr/local/trusterd
 
 EXPOSE 8080
 
