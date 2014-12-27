@@ -10,7 +10,7 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
   - git clone https://github.com/h2o/qrintf.git
   - cd qrintf
-  - make install PREFIX=/usr/local
+  - sudo make install PREFIX=/usr/local
 script:
   - sh build.sh
 notifications:
