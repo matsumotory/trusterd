@@ -1,36 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Trusterd - HTTP/2 Web Server scripting with mruby : ">
+    <title>Trusterd - HTTP/2 Web Server scripting with mruby by matsumoto-r</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Trusterd - HTTP/2 Web Server scripting with mruby</title>
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/matsumoto-r/trusterd">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/matsumoto-r/trusterd">View on GitHub</a>
+    <div class="wrapper">
 
-          <h1 id="project_title">Trusterd - HTTP/2 Web Server scripting with mruby</h1>
-          <h2 id="project_tagline"></h2>
+      <section>
+        <div id="title">
+          <h1>Trusterd - HTTP/2 Web Server scripting with mruby</h1>
+          <p></p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/matsumoto-r/trusterd/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/matsumoto-r/trusterd/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
         <h1>
 <a id="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
 
@@ -51,6 +58,25 @@
 </ul>
 
 <h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li><a href="https://github.com/tatsuhiro-t/nghttp2#requirements">nghttp2 Requirements</a></li>
+<li><a href="https://github.com/matsumoto-r/mruby-http2/blob/master/mrbgem.rake#L6">mruby-http2 Requirements</a></li>
+<li>Trusterd Requirements
+
+<ul>
+<li>libjemalloc-dev</li>
+<li><a href="https://github.com/h2o/qrintf">qrintf-gcc</a></li>
+<li>If you don't have jemalloc and qrintf-gcc, comment out these lines on <a href="https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62">build_config.rb</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>After reading <a href="https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml">.travis.yml</a>, you might easy to understand the install</p>
+
+<h2>
 <a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick install</h2>
 
 <h3>
@@ -65,13 +91,15 @@
 <h4>
 <a id="build-trusterd" class="anchor" href="#build-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build trusterd</h4>
 
-<div class="highlight highlight-bash"><pre><span class="pl-s3">cd</span> trusterd
-sh build.sh</pre></div>
-
-<p>then, output <code>bin/trusterd</code></p>
+<div class="highlight highlight-bash"><pre>make</pre></div>
 
 <h4>
-<a id="write-config-conftrusterdconfrb" class="anchor" href="#write-config-conftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write config <code>conf/trusterd.conf.rb</code>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h4>
+
+<div class="highlight highlight-bash"><pre>make install INSTALL_PREFIX=/usr/local/trusterd</pre></div>
+
+<h4>
+<a id="write-config-install_prefixconftrusterdconfrb" class="anchor" href="#write-config-install_prefixconftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write config <code>$(INSTALL_PREFIX)/conf/trusterd.conf.rb</code>
 </h4>
 
 <div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
@@ -179,17 +207,19 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 s.run</pre></div>
 
 <h4>
-<a id="create-directory-and-files" class="anchor" href="#create-directory-and-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create directory and files</h4>
-
-<div class="highlight highlight-bash"><pre>mkdir -p /usr/local/trusterd/{bin,htdocs,ssl,conf}
-cp bin/trusterd /usr/local/trusterd/bin/.
-cp conf/trusterd.conf.rb /usr/local/trusterd/conf/.
-<span class="pl-s3">echo</span> hello trusterd world. <span class="pl-k">&gt;</span> /usr/local/trusterd/htdocs/index.html</pre></div>
-
-<h4>
 <a id="run-trusterd" class="anchor" href="#run-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
 
-<div class="highlight highlight-bash"><pre>/usr/local/trusterd/bin/trusterd /usr/local/trusterd/conf/trusterd.conf.rb</pre></div>
+<div class="highlight highlight-bash"><pre>make start INSTALL_PREFIX=/usr/local/trusterd</pre></div>
+
+<p>or </p>
+
+<div class="highlight highlight-bash"><pre><span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/bin/trusterd <span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/conf/trusterd.conf.rb</pre></div>
+
+<h4>
+<a id="clean" class="anchor" href="#clean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clean</h4>
+
+<pre><code>make clean
+</code></pre>
 
 <h4>
 <a id="check-by-nghttp" class="anchor" href="#check-by-nghttp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check by nghttp</h4>
@@ -282,41 +312,51 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 
 s.run</pre></div>
 
-<h4>
-<a id="indexhtml" class="anchor" href="#indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>index.html</h4>
-
-<div class="highlight highlight-html"><pre>hello trusterd world.</pre></div>
-
 <h3>
-<a id="benchmark" class="anchor" href="#benchmark" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmark</h3>
+<a id="benchmarks" class="anchor" href="#benchmarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Benchmarks</h3>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#benchmarking-tool">h2load</a> is a benchmark tool for HTTP/2.</p>
 
 <ul>
-<li>current mruby-http2 commit: 9d3f7c26df0464da3ae2d4211188bfb789ceaab5</li>
 <li>use <a href="https://github.com/h2o/h2o#benchmarks">h2o/h2o benchmark parameter</a>
 </li>
 </ul>
 
-<pre><code>$ h2load -c 500 -m 100 -n 2000000 http://127.0.0.1:8081/index.html
-starting benchmark...
-spawning thread #0: 500 concurrent clients, 2000000 total requests
-progress: 10% done
-progress: 20% done
-progress: 30% done
-progress: 40% done
-progress: 50% done
-progress: 60% done
-progress: 70% done
-progress: 80% done
-progress: 90% done
-progress: 100% done
+<p><strong>HTTP/2</strong></p>
 
-finished in 11 sec, 166 millisec and 830 microsec, 179101 req/s, 8584 kbytes/s
-requests: 2000000 total, 2000000 started, 2000000 done, 2000000 succeeded, 0 failed, 0 errored
-status codes: 2000000 2xx, 0 3xx, 0 4xx, 0 5xx
-traffic: 98163360 bytes total, 18151360 bytes headers, 44000000 bytes data
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Server \ size of content</th>
+<th align="right">6 bytes</th>
+<th align="right">4,096 bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>)</td>
+<td align="right">116,285</td>
+<td align="right">59,330</td>
+</tr>
+<tr>
+<td>tiny-nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>)</td>
+<td align="right">196,653</td>
+<td align="right">104,483</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ a0b35de</a> + <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2 @ 7d856cc</a>
+</td>
+<td align="right">202,910</td>
+<td align="right">85,449</td>
+</tr>
+<tr>
+<td><a href="https://github.com/h2o/h2o">H2O @ 3de8911</a></td>
+<td align="right">216,664</td>
+<td align="right">112,418</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a id="memory" class="anchor" href="#memory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory</h2>
@@ -344,17 +384,9 @@ root     62085 63.3  0.0  49200  5144 pts/4    S+   16:41   0:47  |   \_ /usr/lo
 <li><a href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a></li>
 </ul>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Trusterd - HTTP/2 Web Server scripting with mruby maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
     </div>
-
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
-
   </body>
 </html>
