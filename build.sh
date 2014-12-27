@@ -7,6 +7,6 @@ git submodule update
 cd mruby
 rake deep_clean
 cp -f ../build_config.rb .
-rake
+rake -v
 cp -p bin/mruby ../bin/trusterd
 cd ..
