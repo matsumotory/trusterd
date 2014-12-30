@@ -24,9 +24,19 @@ After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/
 
 ## Quick install
 ### Manual Build
+#### Install qrintf
+Please see [qrintf-gcc](https://github.com/h2o/qrintf)
+
+#### Install jemalloc
+##### Ubuntu
+```
+sudo apt-get install libjemalloc-dev
+```
+
 #### Download trusterd
 ```
 git clone https://github.com/matsumoto-r/trusterd.git
+cd trusterd
 ```
 #### Build trusterd
 ```bash
