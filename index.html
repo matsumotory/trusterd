@@ -83,9 +83,24 @@
 <a id="manual-build" class="anchor" href="#manual-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Build</h3>
 
 <h4>
+<a id="install-qrintf" class="anchor" href="#install-qrintf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install qrintf</h4>
+
+<p>Please see <a href="https://github.com/h2o/qrintf">qrintf-gcc</a></p>
+
+<h4>
+<a id="install-jemalloc" class="anchor" href="#install-jemalloc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install jemalloc</h4>
+
+<h5>
+<a id="ubuntu" class="anchor" href="#ubuntu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ubuntu</h5>
+
+<pre><code>sudo apt-get install libjemalloc-dev
+</code></pre>
+
+<h4>
 <a id="download-trusterd" class="anchor" href="#download-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
 
 <pre><code>git clone https://github.com/matsumoto-r/trusterd.git
+cd trusterd
 </code></pre>
 
 <h4>
@@ -117,6 +132,9 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
   <span class="pl-c1">:port</span>           =&gt; <span class="pl-c1">8080</span>,
   <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2">root_dir</span><span class="pl-pse"><span class="pl-s2">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
   <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-vo">SERVER_DESCRIPTION</span>,
+
+  <span class="pl-c"># support prefork only when linux kernel supports SO_REUSEPORT</span>
+  <span class="pl-c"># :worker         =&gt; 4,</span>
 
   <span class="pl-c"># required when tls option is true.</span>
   <span class="pl-c"># tls option is true by default.</span>
@@ -334,29 +352,63 @@ s.run</pre></div>
 </thead>
 <tbody>
 <tr>
-<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>)</td>
+<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>) single process</td>
 <td align="right">116,285</td>
 <td align="right">59,330</td>
 </tr>
 <tr>
-<td>tiny-nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>)</td>
+<td>tiny-nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>) single process</td>
 <td align="right">196,653</td>
 <td align="right">104,483</td>
 </tr>
 <tr>
 <td>
-<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 69c294f</a> + <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2 @ 5301e29</a>
-</td>
+<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> single process</td>
 <td align="right">202,910</td>
 <td align="right">89,699</td>
 </tr>
 <tr>
-<td><a href="https://github.com/h2o/h2o">H2O @ 3de8911</a></td>
+<td>
+<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> 4 process prefork mode</td>
+<td align="right">509,059</td>
+<td align="right">h2load saturation</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/h2o/h2o">H2O @ 3de8911</a> single process</td>
 <td align="right">216,664</td>
 <td align="right">112,418</td>
 </tr>
 </tbody>
 </table>
+
+<p><code>h2load -c 500 -m 100 -n 2000000</code></p>
+
+<p><strong>Ref: HTTP/1.1 on same benchmark environment</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Server \ size of content</th>
+<th align="right">6 bytes</th>
+<th align="right">4,096 bytes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nginx single process</td>
+<td align="right">21,708</td>
+<td align="right">22,366</td>
+</tr>
+<tr>
+<td>nginx 4 process prefork mode</td>
+<td align="right">67,349</td>
+<td align="right">56,203</td>
+</tr>
+</tbody>
+</table>
+
+<p><code>weighttp -k -c 500 -n 200000</code></p>
 
 <h2>
 <a id="memory" class="anchor" href="#memory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Memory</h2>
