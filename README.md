@@ -64,6 +64,9 @@ s = HTTP2::Server.new({
   :document_root  => "#{root_dir}/htdocs",
   :server_name    => SERVER_DESCRIPTION,
 
+  # support prefork only when linux kernel supports SO_REUSEPORT
+  # :worker         => 4,
+
   # required when tls option is true.
   # tls option is true by default.
   #:key            => "#{root_dir}/ssl/server.key",
@@ -244,6 +247,7 @@ __HTTP/2__
 |nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) |116,285|59,330|
 |tiny-nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) |196,653|104,483|
 |[Trusterd @ 69c294f](https://github.com/matsumoto-r/trusterd) + [mruby-http2 @ 5301e29](https://github.com/matsumoto-r/mruby-http2) |202,910|89,699|
+|[Trusterd @ 69c294f](https://github.com/matsumoto-r/trusterd) + [mruby-http2 @ 5301e29](https://github.com/matsumoto-r/mruby-http2) 4 process prefork mode|494,616| h2load saturation |
 |[H2O @ 3de8911](https://github.com/h2o/h2o)           |216,664|     112,418|
 
 ## Memory

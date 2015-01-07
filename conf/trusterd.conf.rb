@@ -41,6 +41,9 @@ s = HTTP2::Server.new({
   :document_root  => "#{root_dir}/htdocs",
   :server_name    => SERVER_DESCRIPTION,
 
+  # support prefork only when linux kernel supports SO_REUSEPORT
+  # :worker         => 4,
+
   # required when tls option is true.
   # tls option is true by default.
   #:key            => "#{root_dir}/ssl/server.key",
