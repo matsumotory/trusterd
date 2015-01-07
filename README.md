@@ -247,7 +247,7 @@ __HTTP/2__
 |nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|116,285|59,330|
 |tiny-nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|196,653|104,483|
 |[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|202,910|89,699|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 process prefork mode|494,616| h2load saturation |
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 process prefork mode|509,059| h2load saturation |
 |[H2O @ 3de8911](https://github.com/h2o/h2o) single process          |216,664|     112,418|
 
 ## Memory
