@@ -250,6 +250,18 @@ __HTTP/2__
 |[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 process prefork mode|509,059| h2load saturation |
 |[H2O @ 3de8911](https://github.com/h2o/h2o) single process          |216,664|     112,418|
 
+`h2load -c 500 -m 100 -n 2000000`
+
+__Ref: HTTP/1.1 on same benchmark environment__
+
+|Server \ size of content|6 bytes|4,096 bytes|
+|------------------------|------:|----------:|
+|nginx single process|21,708| 22,366 |
+|nginx 4 process prefork mode|67,349| 56,203 |
+
+`weighttp -k -c 500 -n 200000`
+
+
 ## Memory
 #### Startup
 ```
