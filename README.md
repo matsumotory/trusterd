@@ -19,6 +19,7 @@ This is a very early version, please test and report errors. Wellcome pull-reque
   - libjemalloc-dev
   - [qrintf-gcc](https://github.com/h2o/qrintf)
   - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
+- If you use prefork mode, linux kernel need to support `SO_REUSEPORT`. 
 
 After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml), you might easy to understand the install
 
