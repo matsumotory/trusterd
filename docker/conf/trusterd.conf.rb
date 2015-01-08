@@ -41,6 +41,10 @@ s = HTTP2::Server.new({
   :document_root  => "#{root_dir}/htdocs",
   :server_name    => SERVER_DESCRIPTION,
 
+  # support prefork only when linux kernel supports SO_REUSEPORT
+  # :worker         => 4,
+  :worker         => "auto",
+
   # required when tls option is true.
   # tls option is true by default.
   #:key            => "#{root_dir}/ssl/server.key",
@@ -94,17 +98,28 @@ s = HTTP2::Server.new({
 #   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1
 #   # TODO: reciev/send headers transparently and support HTTP/2 at upstream
 #
-#   if s.request.uri =~ /^\/upstream(\/.*)/                                       
-#     s.upstream_uri = $1                                                         
-#     s.upstream = “http://127.0.0.1“                                             
+#   if s.request.uri =~ /^\/upstream(\/.*)/
+#     s.upstream_uri = $1
+#     s.upstream = “http://127.0.0.1“
 #   end
 #
-#   # Expretiment: dynamic content with mruby
+#   # dynamic content with mruby
 #   if s.request.filename =~ /^.*\.rb$/
-#     s.enable_mruby                     
+#     s.enable_mruby
 #   end
 #
+#   # dynamic content with mruby sharing mrb_state
+#   if s.request.filename =~ /^.*\_shared.rb$/
+#     s.enable_shared_mruby
+#   end
+
 #
+#
+# }
+
+# s.set_content_cb {
+#   s.rputs "hello trusterd world from cb"
+#   s.echo "+ hello trusterd world from cb with \n"
 # }
 
 #
