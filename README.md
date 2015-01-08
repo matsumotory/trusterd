@@ -69,7 +69,7 @@ s = HTTP2::Server.new({
 
   # detect cpu thread automatically
   # If don't support SO_REUSEPORT of Linux, the number of worker is 0
-  # :worker         => "auto",
+  :worker         => "auto",
 
   # required when tls option is true.
   # tls option is true by default.
