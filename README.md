@@ -67,6 +67,10 @@ s = HTTP2::Server.new({
   # support prefork only when linux kernel supports SO_REUSEPORT
   # :worker         => 4,
 
+  # detect cpu thread automatically
+  # If don't support SO_REUSEPORT of Linux, the number of worker is 0
+  # :worker         => "auto",
+
   # required when tls option is true.
   # tls option is true by default.
   #:key            => "#{root_dir}/ssl/server.key",
