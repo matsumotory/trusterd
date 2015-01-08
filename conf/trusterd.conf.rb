@@ -43,7 +43,7 @@ s = HTTP2::Server.new({
 
   # support prefork only when linux kernel supports SO_REUSEPORT
   # :worker         => 4,
-  :worker         => "auto"
+  :worker         => "auto",
 
   # required when tls option is true.
   # tls option is true by default.
