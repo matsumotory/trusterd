@@ -260,7 +260,7 @@ trusterd worker processes use cpu resources of full core mostly.
 |nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|116,285|59,330|
 |tiny-nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|196,653|104,483|
 |[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|202,910|89,699|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 worker process mode|509,059| h2load saturation |
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 worker process mode|509,059| 134,542 (h2load saturation) |
 |[H2O @ 3de8911](https://github.com/h2o/h2o) single process          |216,664|     112,418|
 
 `h2load -c 500 -m 100 -n 2000000`
