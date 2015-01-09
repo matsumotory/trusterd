@@ -245,11 +245,13 @@ s.run
 
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
+#### benchmark demo
 ![](images/bench.png)
 
+#### 4 worker mode top demo
 ![](images/top.png)
 
-__HTTP/2__
+#### HTTP/2
 
 |Server \ size of content|6 bytes|4,096 bytes|
 |------------------------|------:|----------:|
@@ -262,7 +264,7 @@ __HTTP/2__
 `h2load -c 500 -m 100 -n 2000000`
 
 
-__Ref: HTTP/1.1 on same benchmark environment__
+#### Ref: HTTP/1.1 on same benchmark environment
 
 |Server \ size of content|6 bytes|4,096 bytes|
 |------------------------|------:|----------:|
