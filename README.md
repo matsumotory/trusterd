@@ -19,7 +19,7 @@ This is a very early version, please test and report errors. Wellcome pull-reque
   - libjemalloc-dev
   - [qrintf-gcc](https://github.com/h2o/qrintf)
   - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
-- If you use prefork mode, linux kernel need to support `SO_REUSEPORT`. 
+- If you use prefork mode, linux kernel need to support `SO_REUSEPORT`.
 
 After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml), you might easy to understand the install
 
@@ -245,6 +245,10 @@ s.run
 
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
+![](images/bench.png)
+
+![](images/top.png)
+
 __HTTP/2__
 
 |Server \ size of content|6 bytes|4,096 bytes|
@@ -256,6 +260,7 @@ __HTTP/2__
 |[H2O @ 3de8911](https://github.com/h2o/h2o) single process          |216,664|     112,418|
 
 `h2load -c 500 -m 100 -n 2000000`
+
 
 __Ref: HTTP/1.1 on same benchmark environment__
 
