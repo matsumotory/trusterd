@@ -247,11 +247,11 @@ s.run
 
 #### 4 worker mode benchmark demo
 500,000 reqeuat/sec is very fater!!
-![](images/bench.png)
+![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/bench.png)
 
 #### 4 worker mode cpu usage by top demo
 trusterd worker processes use cpu resources of full core mostly.
-![](images/top.png)
+![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/top.png)
 
 #### HTTP/2
 
