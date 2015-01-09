@@ -246,9 +246,11 @@ s.run
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
 #### 4 worker mode benchmark demo
+500,000 reqeuat/sec is very fater!!
 ![](images/bench.png)
 
 #### 4 worker mode cpu usage by top demo
+trusterd worker processes use cpu resources of full core mostly.
 ![](images/top.png)
 
 #### HTTP/2
