@@ -72,6 +72,7 @@
 </li>
 </ul>
 </li>
+<li>If you use prefork mode, linux kernel need to support <code>SO_REUSEPORT</code>.</li>
 </ul>
 
 <p>After reading <a href="https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml">.travis.yml</a>, you might easy to understand the install</p>
@@ -344,7 +345,18 @@ s.run</pre></div>
 </li>
 </ul>
 
-<p><strong>HTTP/2</strong></p>
+<h4>
+<a id="benchmark-demo" class="anchor" href="#benchmark-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>benchmark demo</h4>
+
+<p><img src="images/bench.png" alt=""></p>
+
+<h4>
+<a id="4-worker-mode-top-demo" class="anchor" href="#4-worker-mode-top-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>4 worker mode top demo</h4>
+
+<p><img src="images/top.png" alt=""></p>
+
+<h4>
+<a id="http2" class="anchor" href="#http2" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP/2</h4>
 
 <table>
 <thead>
@@ -388,7 +400,8 @@ s.run</pre></div>
 
 <p><code>h2load -c 500 -m 100 -n 2000000</code></p>
 
-<p><strong>Ref: HTTP/1.1 on same benchmark environment</strong></p>
+<h4>
+<a id="ref-http11-on-same-benchmark-environment" class="anchor" href="#ref-http11-on-same-benchmark-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ref: HTTP/1.1 on same benchmark environment</h4>
 
 <table>
 <thead>
