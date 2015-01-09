@@ -245,10 +245,10 @@ s.run
 
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
-#### benchmark demo
+#### 4 worker mode benchmark demo
 ![](images/bench.png)
 
-#### 4 worker mode top demo
+#### 4 worker mode cpu usage by top demo
 ![](images/top.png)
 
 #### HTTP/2
