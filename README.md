@@ -154,7 +154,8 @@ s = HTTP2::Server.new({
 # s.set_logging_cb {
 #
 #   p "callback block after send response"
-#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"
+#
+#   f.write "client_ip:'#{s.conn.client_ip}' date:'#{s.r.date}' status:#{s.r.status} content_length:#{s.r.content_length} uri:'#{s.r.uri}' filename:'#{s.r.filename}' user_agent:'#{s.r.user_agent}'\n"
 #
 # }
 
