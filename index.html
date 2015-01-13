@@ -223,7 +223,8 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c"># s.set_logging_cb {</span>
 <span class="pl-c">#</span>
 <span class="pl-c">#   p "callback block after send response"</span>
-<span class="pl-c">#   f.write "#{s.conn.client_ip} #{Time.now} - #{s.r.uri} - #{s.r.filename}\n"</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   f.write "client_ip:'#{s.conn.client_ip}' date:'#{s.r.date}' status:#{s.r.status} content_length:#{s.r.content_length} uri:'#{s.r.uri}' filename:'#{s.r.filename}' user_agent:'#{s.r.user_agent}'\n"</span>
 <span class="pl-c">#</span>
 <span class="pl-c"># }</span>
 
