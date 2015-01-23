@@ -371,32 +371,43 @@ s.run</pre></div>
 </thead>
 <tbody>
 <tr>
-<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>) single process</td>
-<td align="right">116,285</td>
-<td align="right">59,330</td>
+<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ a08ce38</a>) single thread</td>
+<td align="right">148,841</td>
+<td align="right">73,812</td>
 </tr>
 <tr>
-<td>tiny-nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ ab1dd11</a>) single process</td>
-<td align="right">196,653</td>
-<td align="right">104,483</td>
+<td>nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ a08ce38</a>) multi thread</td>
+<td align="right">347,152</td>
+<td align="right">104,244</td>
+</tr>
+<tr>
+<td>tiny-nghttpd (<a href="https://github.com/tatsuhiro-t/nghttp2/">nghttpd @ a08ce38</a>) single thread</td>
+<td align="right">190,223</td>
+<td align="right">82,047</td>
 </tr>
 <tr>
 <td>
 <a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> single process</td>
-<td align="right">202,910</td>
-<td align="right">89,699</td>
+<td align="right">204,769</td>
+<td align="right">92,068</td>
 </tr>
 <tr>
 <td>
-<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> 4 worker process mode</td>
+<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> multi process</td>
 <td align="right">509,059</td>
-<td align="right">134,542 (h2load saturation)</td>
+<td align="right">134,542</td>
 </tr>
 <tr>
 <td>
-<a href="https://github.com/h2o/h2o">H2O @ 3de8911</a> single process</td>
-<td align="right">216,664</td>
-<td align="right">112,418</td>
+<a href="https://github.com/h2o/h2o">H2O @ 529be4e</a> single thread</td>
+<td align="right">216,453</td>
+<td align="right">112,356</td>
+</tr>
+<tr>
+<td>
+<a href="https://github.com/h2o/h2o">H2O @ 529be4e</a> multi thread</td>
+<td align="right">379,623</td>
+<td align="right">146,343</td>
 </tr>
 </tbody>
 </table>
@@ -421,7 +432,7 @@ s.run</pre></div>
 <td align="right">22,366</td>
 </tr>
 <tr>
-<td>nginx 4 worker process mode</td>
+<td>nginx multi process</td>
 <td align="right">67,349</td>
 <td align="right">56,203</td>
 </tr>
