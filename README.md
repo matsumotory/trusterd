@@ -258,11 +258,13 @@ trusterd worker processes use cpu resources of full core mostly.
 
 |Server \ size of content|6 bytes|4,096 bytes|
 |------------------------|------:|----------:|
-|nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|116,285|59,330|
-|tiny-nghttpd ([nghttpd @ ab1dd11](https://github.com/tatsuhiro-t/nghttp2/)) single process|196,653|104,483|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|202,910|89,699|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) 4 worker process mode|509,059| 134,542 (h2load saturation) |
-|[H2O @ 3de8911](https://github.com/h2o/h2o) single process          |216,664|     112,418|
+|nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|148,841|73,812|
+|nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) multi thread|347,152|104,244|
+|tiny-nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|190,223|82,047|
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|204,769|92,068|
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) multi process|509,059| 134,542 |
+|[H2O @ 529be4e](https://github.com/h2o/h2o) single thread          |216,453|     112,356|
+|[H2O @ 529be4e](https://github.com/h2o/h2o) multi thread          |379,623|     146,343|
 
 `h2load -c 500 -m 100 -n 2000000`
 
@@ -272,7 +274,7 @@ trusterd worker processes use cpu resources of full core mostly.
 |Server \ size of content|6 bytes|4,096 bytes|
 |------------------------|------:|----------:|
 |nginx single process|21,708| 22,366 |
-|nginx 4 worker process mode|67,349| 56,203 |
+|nginx multi process|67,349| 56,203 |
 
 `weighttp -k -c 500 -n 200000`
 
