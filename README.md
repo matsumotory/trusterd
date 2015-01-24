@@ -1,10 +1,10 @@
 # Trusterd HTTP/2 Web Server
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/matsumoto-r/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master)](https://travis-ci.org/matsumoto-r/trusterd)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/trusterd/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/trusterd/trusterd.svg?branch=master)](https://travis-ci.org/trusterd/trusterd)
 [![wercker status](https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s "wercker status")](https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f)
 
-[Trusterd](https://github.com/matsumoto-r/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
+[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
 
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
@@ -14,14 +14,14 @@ This is a very early version, please test and report errors. Wellcome pull-reque
 ## Requirements
 
 - [nghttp2 Requirements](https://github.com/tatsuhiro-t/nghttp2#requirements)
-- [mruby-http2 Requirements](https://github.com/matsumoto-r/mruby-http2/blob/master/mrbgem.rake#L6)
+- [mruby-http2 Requirements](https://github.com/trusterd/mruby-http2/blob/master/mrbgem.rake#L6)
 - Trusterd Requirements
   - libjemalloc-dev
   - [qrintf-gcc](https://github.com/h2o/qrintf)
-  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
+  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/trusterd/trusterd/blob/master/build_config.rb#L34-L62)
 - If you use prefork mode, linux kernel need to support `SO_REUSEPORT`.
 
-After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml), you might easy to understand the install
+After reading [.travis.yml](https://github.com/trusterd/trusterd/blob/master/.travis.yml), you might easy to understand the install
 
 ## Quick install
 ### Manual Build
@@ -36,7 +36,7 @@ sudo apt-get install libjemalloc-dev
 
 #### Download trusterd
 ```
-git clone https://github.com/matsumoto-r/trusterd.git
+git clone https://github.com/trusterd/trusterd.git
 cd trusterd
 ```
 #### Build trusterd
@@ -248,11 +248,11 @@ s.run
 
 #### 4 worker mode benchmark demo
 500,000 reqeuat/sec is very fater!!
-![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/bench.png)
+![](https://raw.githubusercontent.com/trusterd/trusterd/master/images/bench.png)
 
 #### 4 worker mode cpu usage by top demo
 trusterd worker processes use cpu resources of full core mostly.
-![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/top.png)
+![](https://raw.githubusercontent.com/trusterd/trusterd/master/images/top.png)
 
 #### HTTP/2
 
@@ -261,8 +261,8 @@ trusterd worker processes use cpu resources of full core mostly.
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|148,841|73,812|
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) multi thread|347,152|104,244|
 |tiny-nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|190,223|82,047|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|204,769|92,068|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) multi process|509,059| 134,542 |
+|[Trusterd @ 2432cc5](https://github.com/trusterd/trusterd) single process|204,769|92,068|
+|[Trusterd @ 2432cc5](https://github.com/trusterd/trusterd) multi process|509,059| 134,542 |
 |[H2O @ 529be4e](https://github.com/h2o/h2o) single thread          |216,453|     112,356|
 |[H2O @ 529be4e](https://github.com/h2o/h2o) multi thread          |379,623|     146,343|
 
