@@ -20,7 +20,7 @@ MRuby::Build.new do |conf|
   # conf.gem :git => 'git@github.com:masuidrive/mrbgems-example.git', :branch => 'master', :options => '-v'
 
   conf.gem :github => 'matsumoto-r/mruby-simplehttp'
-  conf.gem :github => 'matsumoto-r/mruby-http2'
+  conf.gem :github => 'trusterd/mruby-http2'
   conf.gem :github => 'iij/mruby-io'
   conf.gem :github => 'iij/mruby-dir'
   conf.gem :github => 'iij/mruby-socket'
