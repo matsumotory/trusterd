@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Trusterd - HTTP/2 Web Server scripting with mruby by matsumoto-r</title>
+    <title>Trusterd - HTTP/2 Web Server scripting with mruby by trusterd</title>
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -20,9 +20,9 @@
   <body>
       <div id="header">
         <nav>
-          <li class="fork"><a href="https://github.com/matsumoto-r/trusterd">View On GitHub</a></li>
-          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/zipball/master">ZIP</a></li>
-          <li class="downloads"><a href="https://github.com/matsumoto-r/trusterd/tarball/master">TAR</a></li>
+          <li class="fork"><a href="https://github.com/trusterd/trusterd">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/trusterd/trusterd/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/trusterd/trusterd/tarball/master">TAR</a></li>
           <li class="title">DOWNLOADS</li>
         </nav>
       </div><!-- end header -->
@@ -34,18 +34,18 @@
           <h1>Trusterd - HTTP/2 Web Server scripting with mruby</h1>
           <p></p>
           <hr>
-          <span class="credits left">Project maintained by <a href="https://github.com/matsumoto-r">matsumoto-r</a></span>
+          <span class="credits left">Project maintained by <a href="https://github.com/trusterd">trusterd</a></span>
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
         <h1>
 <a id="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
 
-<p><a href="https://gitter.im/matsumoto-r/trusterd?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
-<a href="https://travis-ci.org/matsumoto-r/trusterd"><img src="https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master" alt="Build Status"></a>
+<p><a href="https://gitter.im/trusterd/trusterd?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
+<a href="https://travis-ci.org/trusterd/trusterd"><img src="https://travis-ci.org/trusterd/trusterd.svg?branch=master" alt="Build Status"></a>
 <a href="https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f"><img src="https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s" alt="wercker status" title="wercker status"></a></p>
 
-<p><a href="https://github.com/matsumoto-r/trusterd">Trusterd</a> is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/matsumoto-r/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
+<p><a href="https://github.com/trusterd/trusterd">Trusterd</a> is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/trusterd/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
 
 <h2>
 <a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
@@ -62,20 +62,20 @@
 
 <ul>
 <li><a href="https://github.com/tatsuhiro-t/nghttp2#requirements">nghttp2 Requirements</a></li>
-<li><a href="https://github.com/matsumoto-r/mruby-http2/blob/master/mrbgem.rake#L6">mruby-http2 Requirements</a></li>
+<li><a href="https://github.com/trusterd/mruby-http2/blob/master/mrbgem.rake#L6">mruby-http2 Requirements</a></li>
 <li>Trusterd Requirements
 
 <ul>
 <li>libjemalloc-dev</li>
 <li><a href="https://github.com/h2o/qrintf">qrintf-gcc</a></li>
-<li>If you don't have jemalloc and qrintf-gcc, comment out these lines on <a href="https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62">build_config.rb</a>
+<li>If you don't have jemalloc and qrintf-gcc, comment out these lines on <a href="https://github.com/trusterd/trusterd/blob/master/build_config.rb#L34-L62">build_config.rb</a>
 </li>
 </ul>
 </li>
 <li>If you use prefork mode, linux kernel need to support <code>SO_REUSEPORT</code>.</li>
 </ul>
 
-<p>After reading <a href="https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml">.travis.yml</a>, you might easy to understand the install</p>
+<p>After reading <a href="https://github.com/trusterd/trusterd/blob/master/.travis.yml">.travis.yml</a>, you might easy to understand the install</p>
 
 <h2>
 <a id="quick-install" class="anchor" href="#quick-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick install</h2>
@@ -100,7 +100,7 @@
 <h4>
 <a id="download-trusterd" class="anchor" href="#download-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
 
-<pre><code>git clone https://github.com/matsumoto-r/trusterd.git
+<pre><code>git clone https://github.com/trusterd/trusterd.git
 cd trusterd
 </code></pre>
 
@@ -350,13 +350,13 @@ s.run</pre></div>
 <a id="4-worker-mode-benchmark-demo" class="anchor" href="#4-worker-mode-benchmark-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>4 worker mode benchmark demo</h4>
 
 <p>500,000 reqeuat/sec is very fater!!
-<img src="https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/bench.png" alt=""></p>
+<img src="https://raw.githubusercontent.com/trusterd/trusterd/master/images/bench.png" alt=""></p>
 
 <h4>
 <a id="4-worker-mode-cpu-usage-by-top-demo" class="anchor" href="#4-worker-mode-cpu-usage-by-top-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>4 worker mode cpu usage by top demo</h4>
 
 <p>trusterd worker processes use cpu resources of full core mostly.
-<img src="https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/top.png" alt=""></p>
+<img src="https://raw.githubusercontent.com/trusterd/trusterd/master/images/top.png" alt=""></p>
 
 <h4>
 <a id="http2" class="anchor" href="#http2" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP/2</h4>
@@ -387,13 +387,13 @@ s.run</pre></div>
 </tr>
 <tr>
 <td>
-<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> single process</td>
+<a href="https://github.com/trusterd/trusterd">Trusterd @ 2432cc5</a> single process</td>
 <td align="right">204,769</td>
 <td align="right">92,068</td>
 </tr>
 <tr>
 <td>
-<a href="https://github.com/matsumoto-r/trusterd">Trusterd @ 2432cc5</a> multi process</td>
+<a href="https://github.com/trusterd/trusterd">Trusterd @ 2432cc5</a> multi process</td>
 <td align="right">509,059</td>
 <td align="right">134,542</td>
 </tr>
