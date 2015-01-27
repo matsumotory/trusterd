@@ -1,4 +1,6 @@
 # Trusterd HTTP/2 Web Server  [![Build Status](https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master)](https://travis-ci.org/matsumoto-r/trusterd)
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/trusterd/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Trusterd is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/matsumoto-r/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
 
 ## Benchmark
