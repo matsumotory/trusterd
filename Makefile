@@ -29,7 +29,7 @@ install:
 	mkdir -p $(INSTALL_PREFIX)/ssl
 	mkdir -p $(INSTALL_PREFIX)/conf
 	cp $(TRUSTERD_ROOT)/bin/trusterd $(INSTALL_PREFIX)/bin/.
-	cp $(TRUSTERD_ROOT)/conf/trusterd.conf.rb $(INSTALL_PREFIX)/conf/.
+	sed -e 's|root_dir = "/usr/local/trusterd"|root_dir = "$(INSTALL_PREFIX)"|' $(TRUSTERD_ROOT)/conf/trusterd.conf.rb  > $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 	echo hello trusterd world. > $(INSTALL_PREFIX)/htdocs/index.html
 
 #   cleanup
