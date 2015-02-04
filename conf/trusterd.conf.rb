@@ -73,6 +73,15 @@ s = HTTP2::Server.new({
   # connection_record defualt: true
   # :connection_record => false,
 
+  # runngin user, start server with root and change to run_user
+  # :run_user => "daemon",
+
+  # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
+  # :rlimit_nofile => 65535,
+
+  # Set TCP_NOPUSH (TCP_CORK) option
+  # :tcp_nopush => true,
+
 })
 
 #
