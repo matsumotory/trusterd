@@ -109,6 +109,12 @@ s = HTTP2::Server.new({
   # Set TCP_NOPUSH (TCP_CORK) option
   # :tcp_nopush => true,
 
+  # expand buffer size before writing packet. decreace the number of small packets. That may be usefull for TLS session
+  # :write_packet_buffer_expand_size => 4096 * 4,
+
+  # limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session
+  # :write_packet_buffer_limit_size => 4096,
+
 })
 
 #
