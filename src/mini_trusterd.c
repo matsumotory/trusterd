@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include "mruby.h"
 #include "mruby/compile.h"
+#include "mruby/variable.h"
 
 const char config[] = "                                       \n\
                        s = HTTP2::Server.new({                \n\
-                           :port => port,                     \n\
+                           # instance variable from C         \n\
+                           :port => @port,                    \n\
                            :document_root => './',            \n\
                            :server_name => 'mini_trusterd',   \n\
                            :tls => false,                     \n\
@@ -33,8 +35,8 @@ int main(void)
   mrb_state *mrb = mrb_open();
   mrbc_context *ctx = mrbc_context_new(mrb);
 
-  // 8080 into local variable "port" on same ctx
-  mrb_load_string_cxt(mrb, "port = 8080", ctx);
+  // 8080 into instance variable "@port" of main on same ctx
+  mrb_iv_set(mrb, mrb_top_self(mrb), mrb_intern_lit(mrb, "@port"), mrb_fixnum_value(8080));
   mrb_load_string_cxt(mrb, config, ctx);
   mrb_load_string_cxt(mrb, response, ctx);
   mrb_load_string_cxt(mrb, run, ctx);
