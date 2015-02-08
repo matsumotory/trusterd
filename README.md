@@ -25,13 +25,25 @@ After reading [.travis.yml](https://github.com/trusterd/trusterd/blob/master/.tr
 
 ## Quick install
 ### Manual Build
-#### 1. Install qrintf
+#### 1. Install qrintf (Optional, but recommended)
 Please see [qrintf-gcc](https://github.com/h2o/qrintf)
 
-#### 2. Install jemalloc
+or commet out this line in `build_config.rb`
+
+```
+cc.command = ENV['CC'] || 'qrintf-gcc'
+```
+
+#### 2. Install jemalloc (Optional, but recommended)
 ##### Ubuntu
 ```
 sudo apt-get install libjemalloc-dev
+```
+
+or comment out this line in `build_config.rb`
+
+```
+linker.flags_after_libraries << '-ljemalloc'
 ```
 
 #### 3. Download trusterd
