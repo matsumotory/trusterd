@@ -19,6 +19,12 @@ trusterd:
 	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake
 	cp -p $(MRUBY_ROOT)/bin/mruby $(TRUSTERD_ROOT)/bin/trusterd
 
+mini-trusterd:
+	git submodule init
+	git submodule update
+	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake
+	cd src/ && make
+
 # 	test
 test:
 	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake all test
