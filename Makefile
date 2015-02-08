@@ -8,6 +8,7 @@ TRUSTERD_ROOT=$(PWD)
 MRUBY_ROOT=$(PWD)/mruby
 INSTALL_PREFIX=$(TRUSTERD_ROOT)/build
 
+
 #   the default target
 all: trusterd
 
@@ -24,11 +25,8 @@ test:
 
 #   install
 install:
-	mkdir -p $(INSTALL_PREFIX)/bin
-	mkdir -p $(INSTALL_PREFIX)/htdocs
-	mkdir -p $(INSTALL_PREFIX)/ssl
-	mkdir -p $(INSTALL_PREFIX)/conf
-	cp $(TRUSTERD_ROOT)/bin/trusterd $(INSTALL_PREFIX)/bin/.
+	install -d $(INSTALL_PREFIX)/bin $(INSTALL_PREFIX)/htdocs $(INSTALL_PREFIX)/ssl $(INSTALL_PREFIX)/conf
+	install -m 755 $(TRUSTERD_ROOT)/bin/trusterd $(INSTALL_PREFIX)/bin/.
 	sed -e 's|root_dir = "/usr/local/trusterd"|root_dir = "$(INSTALL_PREFIX)"|' $(TRUSTERD_ROOT)/conf/trusterd.conf.rb  > $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 	echo hello trusterd world. > $(INSTALL_PREFIX)/htdocs/index.html
 
