@@ -167,9 +167,16 @@ s = HTTP2::Server.new({
 #     s.enable_shared_mruby
 #   end
 #
+#  if s.request.uri =~ /hellocb/
+#    s.set_content_cb {
+#      s.rputs "hello trusterd world from cb"
+#      s.echo "+ hello trusterd world from cb with \n"
+#    }
+#  end
 #
 # }
 
+# #If define set_content_cb this scope, callback only once
 # s.set_content_cb {
 #   s.rputs "hello trusterd world from cb"
 #   s.echo "+ hello trusterd world from cb with \n"
