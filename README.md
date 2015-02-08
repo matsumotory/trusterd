@@ -25,29 +25,29 @@ After reading [.travis.yml](https://github.com/trusterd/trusterd/blob/master/.tr
 
 ## Quick install
 ### Manual Build
-#### Install qrintf
+#### 1. Install qrintf
 Please see [qrintf-gcc](https://github.com/h2o/qrintf)
 
-#### Install jemalloc
+#### 2. Install jemalloc
 ##### Ubuntu
 ```
 sudo apt-get install libjemalloc-dev
 ```
 
-#### Download trusterd
+#### 3. Download trusterd
 ```
 git clone https://github.com/trusterd/trusterd.git
 cd trusterd
 ```
-#### Build trusterd
+#### 4. Build trusterd
 ```bash
 make
 ```
-#### Install
+#### 5. Install
 ```bash
 make install INSTALL_PREFIX=/usr/local/trusterd
 ```
-#### Write config ``$(INSTALL_PREFIX)/conf/trusterd.conf.rb``
+#### 6. Write config ``$(INSTALL_PREFIX)/conf/trusterd.conf.rb``
 ```ruby
 SERVER_NAME = "Trusterd"
 SERVER_VERSION = "0.0.1"
@@ -176,7 +176,7 @@ s = HTTP2::Server.new({
 
 s.run
 ```
-#### Run trusterd
+#### 7. Run trusterd
 ```bash
 make start INSTALL_PREFIX=/usr/local/trusterd
 ```
@@ -187,17 +187,17 @@ or
 $(INSTALL_PREFIX)/bin/trusterd $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 ```
 
-#### Clean
-```
-make clean
-```
-#### Check by nghttp
+#### 8. Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
 ```
 $ nghttp http://127.0.0.1:8080/index.html
 hello trusterd world.
 ```
 
+#### Clean
+```
+make clean
+```
 ----
 
 ### Using Docker
