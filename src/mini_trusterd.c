@@ -20,7 +20,7 @@ const char response[] = "                                     \n\
                          if s.request.uri =~ /hello/          \n\
                            s.set_content_cb {                 \n\
                              s.rputs 'hello mini-trusterd '   \n\
-                             s.echo 'world from cb.'          \n\
+                             s.echo @echo_content             \n\
                            }                                  \n\
                          end                                  \n\
                        }                                      \n\
@@ -37,6 +37,7 @@ int main(void)
 
   // 8080 into instance variable "@port" of main on same ctx
   mrb_iv_set(mrb, mrb_top_self(mrb), mrb_intern_lit(mrb, "@port"), mrb_fixnum_value(8080));
+  mrb_iv_set(mrb, mrb_top_self(mrb), mrb_intern_lit(mrb, "@echo_content"), mrb_str_new_lit(mrb, "world from cb."));
   mrb_load_string_cxt(mrb, config, ctx);
   mrb_load_string_cxt(mrb, response, ctx);
   mrb_load_string_cxt(mrb, run, ctx);
