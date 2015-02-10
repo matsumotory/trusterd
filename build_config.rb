@@ -22,7 +22,7 @@ MRuby::Build.new do |conf|
   # C compiler settings
   if RUBY_PLATFORM =~ /linux/i
     conf.cc do |cc|
-      #cc.command = ENV['CC'] || 'qrintf-gcc'
+      cc.command = ENV['CC'] || 'qrintf-gcc'
     end
 
     # Linker settings
