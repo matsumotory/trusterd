@@ -45,7 +45,7 @@
 <a href="https://travis-ci.org/trusterd/trusterd"><img src="https://travis-ci.org/trusterd/trusterd.svg?branch=master" alt="Build Status"></a>
 <a href="https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f"><img src="https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s" alt="wercker status" title="wercker status"></a></p>
 
-<p><a href="https://github.com/trusterd/trusterd">Trusterd</a> is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/trusterd/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.</p>
+<p><a href="https://github.com/trusterd/trusterd">Trusterd</a> is a high performance HTTP/2 Web Server scripting with <a href="https://github.com/mruby/mruby">mruby</a> using <a href="https://github.com/tatsuhiro-t/nghttp2">nghttp2</a> and <a href="https://github.com/trusterd/mruby-http2">mruby-http2</a>. You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, <a href="https://github.com/trusterd/trusterd/blob/master/README.md#embed-into-your-c-application">you can embed these functions into your C applications</a>.</p>
 
 <h2>
 <a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h2>
@@ -84,12 +84,17 @@
 <a id="manual-build" class="anchor" href="#manual-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual Build</h3>
 
 <h4>
-<a id="install-qrintf" class="anchor" href="#install-qrintf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install qrintf</h4>
+<a id="1-install-qrintf-optional-but-recommended" class="anchor" href="#1-install-qrintf-optional-but-recommended" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Install qrintf (Optional, but recommended)</h4>
 
 <p>Please see <a href="https://github.com/h2o/qrintf">qrintf-gcc</a></p>
 
+<p>or commet out this line in <code>build_config.rb</code></p>
+
+<pre><code>cc.command = ENV['CC'] || 'qrintf-gcc'
+</code></pre>
+
 <h4>
-<a id="install-jemalloc" class="anchor" href="#install-jemalloc" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install jemalloc</h4>
+<a id="2-install-jemalloc-optional-but-recommended" class="anchor" href="#2-install-jemalloc-optional-but-recommended" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Install jemalloc (Optional, but recommended)</h4>
 
 <h5>
 <a id="ubuntu" class="anchor" href="#ubuntu" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ubuntu</h5>
@@ -97,25 +102,30 @@
 <pre><code>sudo apt-get install libjemalloc-dev
 </code></pre>
 
+<p>or comment out this line in <code>build_config.rb</code></p>
+
+<pre><code>linker.flags_after_libraries &lt;&lt; '-ljemalloc'
+</code></pre>
+
 <h4>
-<a id="download-trusterd" class="anchor" href="#download-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download trusterd</h4>
+<a id="3-download-trusterd" class="anchor" href="#3-download-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Download trusterd</h4>
 
 <pre><code>git clone https://github.com/trusterd/trusterd.git
 cd trusterd
 </code></pre>
 
 <h4>
-<a id="build-trusterd" class="anchor" href="#build-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build trusterd</h4>
+<a id="4-build-trusterd" class="anchor" href="#4-build-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Build trusterd</h4>
 
 <div class="highlight highlight-bash"><pre>make</pre></div>
 
 <h4>
-<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h4>
+<a id="5-install" class="anchor" href="#5-install" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Install</h4>
 
 <div class="highlight highlight-bash"><pre>make install INSTALL_PREFIX=/usr/local/trusterd</pre></div>
 
 <h4>
-<a id="write-config-install_prefixconftrusterdconfrb" class="anchor" href="#write-config-install_prefixconftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>Write config <code>$(INSTALL_PREFIX)/conf/trusterd.conf.rb</code>
+<a id="6-write-config-install_prefixconftrusterdconfrb" class="anchor" href="#6-write-config-install_prefixconftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Write config <code>$(INSTALL_PREFIX)/conf/trusterd.conf.rb</code>
 </h4>
 
 <div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
@@ -169,6 +179,21 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
   <span class="pl-c"># connection_record defualt: true</span>
   <span class="pl-c"># :connection_record =&gt; false,</span>
 
+  <span class="pl-c"># runngin user, start server with root and change to run_user</span>
+  <span class="pl-c"># :run_user =&gt; "daemon",</span>
+
+  <span class="pl-c"># Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root</span>
+  <span class="pl-c"># :rlimit_nofile =&gt; 65535,</span>
+
+  <span class="pl-c"># Set TCP_NOPUSH (TCP_CORK) option</span>
+  <span class="pl-c"># :tcp_nopush =&gt; true,</span>
+
+  <span class="pl-c"># expand buffer size before writing packet. decreace the number of small packets. That may be usefull for TLS session</span>
+  <span class="pl-c"># :write_packet_buffer_expand_size =&gt; 4096 * 4,</span>
+
+  <span class="pl-c"># limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session</span>
+  <span class="pl-c"># :write_packet_buffer_limit_size =&gt; 4096,</span>
+
 })
 
 <span class="pl-c">#</span>
@@ -209,9 +234,16 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c">#     s.enable_shared_mruby</span>
 <span class="pl-c">#   end</span>
 <span class="pl-c">#</span>
+<span class="pl-c">#  if s.request.uri =~ /hellocb/</span>
+<span class="pl-c">#    s.set_content_cb {</span>
+<span class="pl-c">#      s.rputs "hello trusterd world from cb"</span>
+<span class="pl-c">#      s.echo "+ hello trusterd world from cb with \n"</span>
+<span class="pl-c">#    }</span>
+<span class="pl-c">#  end</span>
 <span class="pl-c">#</span>
 <span class="pl-c"># }</span>
 
+<span class="pl-c"># #If define set_content_cb this scope, callback only once</span>
 <span class="pl-c"># s.set_content_cb {</span>
 <span class="pl-c">#   s.rputs "hello trusterd world from cb"</span>
 <span class="pl-c">#   s.echo "+ hello trusterd world from cb with \n"</span>
@@ -231,7 +263,7 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 s.run</pre></div>
 
 <h4>
-<a id="run-trusterd" class="anchor" href="#run-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run trusterd</h4>
+<a id="7-run-trusterd" class="anchor" href="#7-run-trusterd" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. Run trusterd</h4>
 
 <div class="highlight highlight-bash"><pre>make start INSTALL_PREFIX=/usr/local/trusterd</pre></div>
 
@@ -240,18 +272,18 @@ s.run</pre></div>
 <div class="highlight highlight-bash"><pre><span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/bin/trusterd <span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/conf/trusterd.conf.rb</pre></div>
 
 <h4>
-<a id="clean" class="anchor" href="#clean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clean</h4>
-
-<pre><code>make clean
-</code></pre>
-
-<h4>
-<a id="check-by-nghttp" class="anchor" href="#check-by-nghttp" aria-hidden="true"><span class="octicon octicon-link"></span></a>Check by nghttp</h4>
+<a id="8-check-by-nghttp" class="anchor" href="#8-check-by-nghttp" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Check by nghttp</h4>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#nghttp---client">nghttp</a> is a client tool for HTTP/2.</p>
 
 <pre><code>$ nghttp http://127.0.0.1:8080/index.html
 hello trusterd world.
+</code></pre>
+
+<h4>
+<a id="clean" class="anchor" href="#clean" aria-hidden="true"><span class="octicon octicon-link"></span></a>Clean</h4>
+
+<pre><code>make clean
 </code></pre>
 
 <hr>
@@ -300,6 +332,19 @@ hello trusterd world.
 
 <pre><code>nghttp -v http://127.0.0.1:8080/index.html
 </code></pre>
+
+<h2>
+<a id="embed-into-your-c-application" class="anchor" href="#embed-into-your-c-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Embed into your C application</h2>
+
+<h3>
+<a id="http2-server-fucntion" class="anchor" href="#http2-server-fucntion" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP/2 Server fucntion</h3>
+
+<p>See <a href="https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd.c">src/mini_trusterd.c</a></p>
+
+<h3>
+<a id="http2-client-function" class="anchor" href="#http2-client-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTTP/2 Client function</h3>
+
+<p>See <a href="https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd_client.c">src/mini_trusterd_client.c</a></p>
 
 <h2>
 <a id="peformance" class="anchor" href="#peformance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Peformance</h2>
