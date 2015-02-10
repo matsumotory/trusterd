@@ -14,6 +14,7 @@ MRuby::Build.new do |conf|
   conf.gem :github => 'iij/mruby-process'
   conf.gem :github => 'mattn/mruby-onig-regexp'
   conf.gem :github => 'mattn/mruby-json'
+  conf.gem :github => "kou/mruby-pp"
 
   # include the default GEMs
   conf.gembox 'full-core'
@@ -21,7 +22,7 @@ MRuby::Build.new do |conf|
   # C compiler settings
   if RUBY_PLATFORM =~ /linux/i
     conf.cc do |cc|
-      cc.command = ENV['CC'] || 'qrintf-gcc'
+      #cc.command = ENV['CC'] || 'qrintf-gcc'
     end
 
     # Linker settings
