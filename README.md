@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/trusterd/trusterd.svg?branch=master)](https://travis-ci.org/trusterd/trusterd)
 [![wercker status](https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s "wercker status")](https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f)
 
-[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby.
+[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby. HTTP/2 server and client function are pluggable. So, these functions can be embedded into your C applications.
 
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
@@ -246,6 +246,14 @@ docker run -d -p 8080:8080 local/trusterd
 ```
 nghttp -v http://127.0.0.1:8080/index.html
 ```
+
+## Embed into your C application
+### Server fucntion
+See [src/mini_trusterd.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd.c)
+
+### Client function
+See [src/mini_trusterd_client.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd_client.c)
+
 ## Peformance
 ### Machine
 
