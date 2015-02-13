@@ -88,6 +88,7 @@ s = HTTP2::Server.new({
   # tls option is true by default.
   #:key            => "#{root_dir}/ssl/server.key",
   #:crt            => "#{root_dir}/ssl/server.crt",
+  #:dh_params_file => "#{root_dir}/ssl/dh.pem",
 
   # listen ip address
   # default value is 0.0.0.0
