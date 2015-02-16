@@ -194,6 +194,11 @@ s = HTTP2::Server.new({
 #
 # }
 
+# extend response just before send response
+# s.set_fixups_cb {
+#  s.r.response_headers["server"] = "other server"
+#}
+
 # #If define set_content_cb this scope, callback only once
 # s.set_content_cb {
 #   s.rputs "hello trusterd world from cb"
