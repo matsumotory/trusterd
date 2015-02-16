@@ -14,6 +14,13 @@ install:
   - cd ..
 script:
   - make
+  - sudo make install INSTALL_PREFIX=/usr/local/trusterd
+  - sudo /usr/local/trusterd/bin/trusterd conf/example/trusterd.conf.callbacks.example.rb &
+  - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.html
+  - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.php
+  - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.cgi
+  - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/hello
+  - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/hello.rb
 notifications:
   webhooks:
     - secure: "P9iIOhAPmxIJnNqwjUfdxpSocYlOb1w6AZcA51xJ/1troQKyVaeK4Qxw1qbml8/UqjM22JKTmpTq7yzPg6LPaoNWTFGK3GC7oHRmnb8+WZOSxSYhU1nYXDx/EvlK1bmFPbB2+ZGgkac0CmgtkAk02x4yZ6TKOYFzxG4xzGOmWIY="

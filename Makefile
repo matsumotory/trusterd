@@ -31,10 +31,11 @@ test:
 
 #   install
 install:
-	install -d $(INSTALL_PREFIX)/bin $(INSTALL_PREFIX)/htdocs $(INSTALL_PREFIX)/ssl $(INSTALL_PREFIX)/conf
+	install -d $(INSTALL_PREFIX)/bin $(INSTALL_PREFIX)/htdocs $(INSTALL_PREFIX)/ssl $(INSTALL_PREFIX)/conf $(INSTALL_PREFIX)/logs
 	install -m 755 $(TRUSTERD_ROOT)/bin/trusterd $(INSTALL_PREFIX)/bin/.
 	sed -e 's|root_dir = "/usr/local/trusterd"|root_dir = "$(INSTALL_PREFIX)"|' $(TRUSTERD_ROOT)/conf/trusterd.conf.rb  > $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 	echo hello trusterd world. > $(INSTALL_PREFIX)/htdocs/index.html
+	echo 'rputs JSON::stringify({:now => Time.now.to_s, :message => "hello world"})' > $(INSTALL_PREFIX)/htdocs/hello.rb
 
 #   cleanup
 clean:
