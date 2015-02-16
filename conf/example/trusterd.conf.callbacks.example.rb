@@ -44,6 +44,7 @@ s = HTTP2::Server.new({
   :worker         => "auto",
   :tls            => false,
   :callback       => true,
+  :debug          => true,
 
 })
 
@@ -59,7 +60,7 @@ s.set_map_to_strage_cb {
 
   if s.r.uri =~ /\/hello$/
     s.set_content_cb {
-      s.r.echo "hello #{s.conn.client_ip}, welcome to trusterd"
+      s.r.echo "hello #{s.r.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
     }
   end
 
@@ -69,7 +70,7 @@ s.set_map_to_strage_cb {
 }
 
 s.set_access_checker_cb {
-  if s.r.filename == "#{s.document_root}/index.cgi$"
+  if s.r.filename == "#{s.document_root}/index.cgi"
     s.set_status 403
   end
 }
