@@ -227,7 +227,7 @@ $(INSTALL_PREFIX)/bin/trusterd $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 #### 8. Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
 ```
-$ nghttp http://127.0.0.1:8080/index.html
+$ ${GIT_CLONE_DIR}/mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.html
 hello trusterd world.
 ```
 
