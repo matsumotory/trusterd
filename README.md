@@ -133,6 +133,11 @@ s = HTTP2::Server.new({
 #
 # when :callback option is true,
 #
+# # custom request headers
+# # getter
+# s.r.headers_in[":method"] #=> GET
+# s.r.request_headers[":method"] #=> GET
+#
 # # custom response headers
 # # setter
 # s.r.headers_out["hoge"] = fuga
