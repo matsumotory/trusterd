@@ -94,6 +94,16 @@ s = HTTP2::Server.new({
 #
 # when :callback option is true,
 #
+# # custom response headers
+# # setter
+# s.r.headers_out["hoge"] = fuga
+# s.r.response_headers["hoge"] = fuga
+#
+# # getter
+# s.r.headers_out["hoge] #=> fuga
+# s.r.response_headers["hoge] #=> fuga
+#
+#
 # s.set_map_to_strage_cb {
 #
 #   p "callback bloack at set_map_to_strage_cb"
