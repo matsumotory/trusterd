@@ -6,7 +6,7 @@ before_install:
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
 install:
-  - sudo apt-get -qq install rake bison git gperf g++-4.8 libjemalloc-dev
+  - sudo apt-get -qq install rake bison git gperf g++-4.8 libev-dev libevent-dev libjansson-dev libjemalloc-dev libxml2-dev libssl-dev zlib1g-dev
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
   - git clone https://github.com/h2o/qrintf.git
   - cd qrintf
@@ -21,7 +21,4 @@ script:
   - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.cgi
   - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/hello
   - ./mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/hello.rb
-notifications:
-  webhooks:
-    - secure: "P9iIOhAPmxIJnNqwjUfdxpSocYlOb1w6AZcA51xJ/1troQKyVaeK4Qxw1qbml8/UqjM22JKTmpTq7yzPg6LPaoNWTFGK3GC7oHRmnb8+WZOSxSYhU1nYXDx/EvlK1bmFPbB2+ZGgkac0CmgtkAk02x4yZ6TKOYFzxG4xzGOmWIY="
 
