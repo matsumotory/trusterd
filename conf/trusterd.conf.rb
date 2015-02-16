@@ -97,8 +97,10 @@ s = HTTP2::Server.new({
 # s.set_map_to_strage_cb {
 #
 #   p "callback bloack at set_map_to_strage_cb"
-#   p s.request.uri
-#   p s.request.filename
+#   p s.request.uri          #=> /index.html
+#   p s.request.filename     #=> /path/to/index.html
+#   p s.request.unparsed_uri #=> /index.html?a=1&b=2
+#   p s.request.args         #=> ?a=1&b=2
 #
 #   # location setting
 #   if s.request.uri == "/index.html"
