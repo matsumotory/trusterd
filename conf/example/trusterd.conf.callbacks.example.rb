@@ -52,55 +52,56 @@ s = HTTP2::Server.new({
 # callback config
 #
 
-s.set_map_to_strage_cb {
+s.set_map_to_strage_cb do
 
-  if s.r.uri =~ /.*\.php$/
-    s.r.filename = s.document_root + "/index.html"
+  s.location ".*\.php$" do
+    s.filename = s.document_root + "/index.html"
   end
 
-  if s.r.uri =~ /\/hello$/
+  s.location "\/hello$" do
     s.set_content_cb {
-      s.r.echo "hello #{s.r.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
+      s.echo "hello #{s.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
     }
   end
 
-  if s.r.uri =~ /.*\.rb$/
+  s.location ".*\.rb$" do
     s.enable_shared_mruby
   end
-}
 
-s.set_access_checker_cb {
-  if s.r.filename == "#{s.document_root}/index.cgi"
+end
+
+s.set_access_checker_cb do
+  s.file "#{s.document_root}/index.cgi" do
     s.set_status 403
   end
-}
+end
 
-s.set_fixups_cb {
-  s.r.response_headers["last"] = "OK"
-  s.r.response_headers["server"] = "change_server"
-  if ! s.r.body.nil?
-    s.r.response_headers["post-data"] = s.r.body
+s.set_fixups_cb do
+  s.response_headers["last"] = "OK"
+  s.response_headers["server"] = "change_server"
+  if ! s.body.nil?
+    s.response_headers["post-data"] = s.body
   end
-}
+end
 
 f = File.open "#{root_dir}/logs/access.log", "a"
 
-s.set_logging_cb {
+s.set_logging_cb do
 
   log = {
     :ip => s.conn.client_ip,
-    :date => s.r.date,
-    :scheme => s.r.request_headers[":scheme"],
-    :mehtod => s.r.request_headers[":method"],
-    :status => s.r.status,
-    :content_length => s.r.content_length,
-    :uri => s.r.uri,
-    :filename => s.r.filename,
-    :user_agent => s.r.user_agent,
+    :date => s.date,
+    :scheme => s.request_headers[":scheme"],
+    :mehtod => s.request_headers[":method"],
+    :status => s.status,
+    :content_length => s.content_length,
+    :uri => s.uri,
+    :filename => s.filename,
+    :user_agent => s.user_agent,
   }
 
   f.write JSON.stringify(log) + "\n"
 
-}
+end
 
 s.run
