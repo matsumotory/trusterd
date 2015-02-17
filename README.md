@@ -8,6 +8,7 @@
 
 ## TODO
 This is a very early version, please test and report errors. Wellcome pull-request.
+- [High] reverse proxy
 - more customizable Web server configration
 - Server Push
 
