@@ -78,6 +78,9 @@ s.set_access_checker_cb {
 s.set_fixups_cb {
   s.r.response_headers["last"] = "OK"
   s.r.response_headers["server"] = "change_server"
+  if ! s.r.body.nil?
+    s.r.response_headers["post-data"] = s.r.body
+  end
 }
 
 f = File.open "#{root_dir}/logs/access.log", "a"
