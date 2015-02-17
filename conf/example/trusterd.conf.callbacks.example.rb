@@ -87,9 +87,19 @@ f = File.open "#{root_dir}/logs/access.log", "a"
 
 s.set_logging_cb {
 
-  f.write "client_ip:'#{s.conn.client_ip}' date:'#{s.r.date}' \
-  status:#{s.r.status} content_length:#{s.r.content_length} uri:'#{s.r.uri}' \
-  filename:'#{s.r.filename}' user_agent:'#{s.r.user_agent}'\n"
+  log = {
+    :ip => s.conn.client_ip,
+    :date => s.r.date,
+    :scheme => s.r.request_headers[":scheme"],
+    :mehtod => s.r.request_headers[":method"],
+    :status => s.r.status,
+    :content_length => s.r.content_length,
+    :uri => s.r.uri,
+    :filename => s.r.filename,
+    :user_agent => s.r.user_agent,
+  }
+
+  f.write JSON.stringify(log) + "\n"
 
 }
 
