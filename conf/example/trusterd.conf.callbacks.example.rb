@@ -59,9 +59,9 @@ s.set_map_to_strage_cb do
   end
 
   s.location "\/hello$" do
-    s.set_content_cb {
+    s.set_content_cb do
       s.echo "hello #{s.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
-    }
+    end
   end
 
   s.location ".*\.rb$" do
