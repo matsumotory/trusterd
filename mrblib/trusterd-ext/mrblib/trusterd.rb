@@ -10,5 +10,43 @@ module HTTP2
         b.call
       end
     end
+    def setup_access_log config
+      @log = Log.new config, self
+    end
+    def write_access_log format=nil
+      @log.write format
+    end
+    class Log
+      def initialize config, obj
+        @s = obj
+        @config = config
+        @f = File.open @config[:file], "a"
+      end
+      def write format=nil
+        if @config[:format] == :default
+          @f.write default_format
+        else
+          if format.nil?
+            raise "setup log format when :format is not default"
+          else
+            @f.write format
+          end
+        end
+      end
+      def default_format
+        log = {
+          :ip => @s.conn.client_ip,
+          :date => @s.date,
+          :scheme => @s.request_headers[":scheme"],
+          :mehtod => @s.request_headers[":method"],
+          :status => @s.status,
+          :content_length => @s.content_length,
+          :uri => @s.uri,
+          :filename => @s.filename,
+          :user_agent => @s.user_agent,
+        }
+        JSON.stringify(log) + "\n"
+      end
+    end
   end
 end

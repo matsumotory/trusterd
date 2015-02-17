@@ -84,23 +84,14 @@ s.set_fixups_cb do
   end
 end
 
-f = File.open "#{root_dir}/logs/access.log", "a"
+s.setup_access_log({
+  :file   => "#{root_dir}/logs/access.log",
+  :format => :default,
+})
 
 s.set_logging_cb do
 
-  log = {
-    :ip => s.conn.client_ip,
-    :date => s.date,
-    :scheme => s.request_headers[":scheme"],
-    :mehtod => s.request_headers[":method"],
-    :status => s.status,
-    :content_length => s.content_length,
-    :uri => s.uri,
-    :filename => s.filename,
-    :user_agent => s.user_agent,
-  }
-
-  f.write JSON.stringify(log) + "\n"
+  s.write_access_log
 
 end
 
