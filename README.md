@@ -155,6 +155,7 @@ s = HTTP2::Server.new({
 #   p s.request.filename     #=> /path/to/index.html
 #   p s.request.unparsed_uri #=> /index.html?a=1&b=2
 #   p s.request.args         #=> ?a=1&b=2
+#   p s.request.body         #=> "post data"
 #
 #   # location setting
 #   if s.request.uri == "/index.html"
