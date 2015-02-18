@@ -3,7 +3,7 @@ MRuby::Build.new do |conf|
 
   toolchain :gcc
 
-  enable_debug
+  # enable_debug
 
   conf.gem :github => 'matsumoto-r/mruby-simplehttp'
   conf.gem :github => 'trusterd/mruby-http2'
