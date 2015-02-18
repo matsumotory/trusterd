@@ -41,55 +41,59 @@ s = HTTP2::Server.new({
   :document_root  => "#{root_dir}/htdocs",
   :server_name    => SERVER_DESCRIPTION,
   :run_user       => "daemon",
-  #:worker         => "auto",
   :tls            => false,
   :callback       => true,
-  #:debug          => true,
+  :worker         => "auto",
+  :debug          => true,
 
 })
 
-#
-# callback config
-#
-
-#s.set_map_to_strage_cb do
-#
-#  s.location ".*\.php$" do
-#    s.filename = s.document_root + "/index.html"
-#  end
-#
-#  s.location "\/hello$" do
-#    s.set_content_cb do
-#      s.echo "hello #{s.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
-#    end
-#  end
-#
-#  s.location ".*\.rb$" do
-#    s.enable_shared_mruby
-#  end
-#
-#end
-#
-#s.set_access_checker_cb do
-#  s.file "#{s.document_root}/index.cgi" do
-#    s.set_status 403
-#  end
-#end
-#
-#s.set_fixups_cb do
-#  s.response_headers["last"] = "OK"
-#  s.response_headers["server"] = "change_server"
-#  if ! s.body.nil?
-#    s.response_headers["post-data"] = s.body
-#  end
-#end
-
+# log setup if you need
 s.setup_access_log({
   :file   => "#{root_dir}/logs/access.log",
   :format => :default,
   :type   => :plain,
 })
 
+#
+# callback config
+#
+
+# set map to storage phase
+s.set_map_to_strage_cb do
+  s.location ".*\.php$" do
+    s.filename = s.document_root + "/index.html"
+  end
+
+  s.location "\/hello$" do
+    # set content handler phase
+    s.set_content_cb do
+      s.echo "hello #{s.request_headers["user-agent"]} from #{s.conn.client_ip}, welcome to trusterd"
+    end
+  end
+
+  s.location ".*\.rb$" do
+    s.enable_shared_mruby
+  end
+end
+
+# set access checker phase
+s.set_access_checker_cb do
+  s.file "#{s.document_root}/index.cgi" do
+    s.set_status 403
+  end
+end
+
+# set fixups phase which is mostly set response headers
+s.set_fixups_cb do
+  s.response_headers["last"] = "OK"
+  s.response_headers["server"] = "change_server"
+  if ! s.body.nil?
+    s.response_headers["post-data"] = s.body
+  end
+end
+
+# set logging phase
 s.set_logging_cb do
 
   s.write_access_log
