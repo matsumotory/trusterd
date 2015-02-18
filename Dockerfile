@@ -64,8 +64,14 @@ RUN cd /usr/local/src/trusterd && make && make install INSTALL_PREFIX=/usr/local
 
 EXPOSE 8080
 
+ADD docker/conf /usr/local/trusterd/conf
 ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
 ADD docker/htdocs /usr/local/trusterd/htdocs
+
+# for FROM this image
+ONBUILD ADD docker/conf /usr/local/trusterd/conf
+ONBUILD ADD docker/conf/trusterd.conf.rb /usr/local/trusterd/conf/trusterd.conf.rb
+ONBUILD ADD docker/htdocs /usr/local/trusterd/htdocs
 
 # RUN chmod 755 /usr /usr/local
 # CMD ["sudo", "-u", "daemon", "/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
