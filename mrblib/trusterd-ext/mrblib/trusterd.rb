@@ -40,14 +40,14 @@ module HTTP2
         end
       end
       def default_format_plain
-        "#{@s.conn.client_ip} - - [#{@s.date}] \"#{@s.request_headers[':method']} #{@s.unparsed_uri} HTTP/2\" #{@s.status} #{@s.content_length} \"-\" \"#{@s.user_agent}\"\n"
+        "#{@s.conn.client_ip} - - [#{@s.date}] \"#{@s.method} #{@s.unparsed_uri} HTTP/2\" #{@s.status} #{@s.content_length} \"-\" \"#{@s.user_agent}\"\n"
       end
       def default_format_json
         log = {
           :ip => @s.conn.client_ip,
           :date => @s.date,
-          :scheme => @s.request_headers[":scheme"],
-          :mehtod => @s.request_headers[":method"],
+          :scheme => @s.scheme,
+          :mehtod => @s.method,
           :status => @s.status,
           :content_length => @s.content_length,
           :uri => @s.uri,
