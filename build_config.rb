@@ -28,7 +28,7 @@ MRuby::Build.new do |conf|
 
     # Linker settings
     conf.linker do |linker|
-      linker.flags_after_libraries << '-ljemalloc'
+      #linker.flags_after_libraries << '-ljemalloc'
     end
   end
 
