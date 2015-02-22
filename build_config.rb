@@ -28,7 +28,9 @@ MRuby::Build.new do |conf|
 
     # Linker settings
     conf.linker do |linker|
-      #linker.flags_after_libraries << '-ljemalloc'
+      # if you use upstream method, may not use jemalloc.
+      # under investigation ...
+      linker.flags_after_libraries << '-ljemalloc'
     end
   end
 
