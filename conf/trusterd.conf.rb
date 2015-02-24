@@ -128,13 +128,26 @@ s = HTTP2::Server.new({
 #   # Or, you can use KVS like mruby-redis or mruby-
 #   # vedis and so on.
 #
-#   # Experiment: reverse proxy config
-#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1
-#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream
+#   # reverse proxy config
+#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1.x
+#   # TODO: don't support connection with TLS to upstream server
 #
-#   if s.request.uri =~ /^\/upstream(\/.*)/
-#     s.upstream_uri = $1
-#     s.upstream = “http://127.0.0.1“
+#   if s.request.uri =~ /^/$/
+#     s.upstream_uri = s.unparsed_uri
+#     s.upstream_host = "127.0.0.1"
+#
+#     # upstream port default: 80
+#     #s.upstream_port = 8080
+#
+#     # upstream connection timeout default: 600 sec
+#     #s.upstream_timeout = 100
+#
+#     # use keepalive deault: true
+#     #s.upstream_keepalive = false
+#
+#     # use HTTP/1.0 protocol default: HTTP/1.1
+#     #s.upstream_proto_major = 1
+#     #s.upstream_proto_minor = 0
 #   end
 #
 #   # dynamic content with mruby
