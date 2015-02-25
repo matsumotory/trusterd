@@ -133,8 +133,8 @@ s = HTTP2::Server.new({
 #   # TODO: don't support connection with TLS to upstream server
 #
 #   if s.request.uri =~ /^/$/
-#     # upstream request uri default: percent_encode_uri
-#     #s.upstream_uri = s.percent_encode_uri
+#     # upstream request uri default: /
+#     s.upstream_uri = s.percent_encode_uri
 #     s.upstream_host = "127.0.0.1"
 #
 #     # upstream port default: 80
