@@ -150,11 +150,20 @@ s = HTTP2::Server.new({
 # s.set_map_to_strage_cb {
 #
 #   p "callback bloack at set_map_to_strage_cb"
-#   p s.request.uri          #=> /index.html
-#   p s.request.filename     #=> /path/to/index.html
-#   p s.request.unparsed_uri #=> /index.html?a=1&b=2
-#   p s.request.args         #=> ?a=1&b=2
-#   p s.request.body         #=> "post data"
+#   p s.filename            #=> /path/to/index.html
+#   p s.uri                 #=> /index.html
+#   p s.unparsed_uri        #=> /index.html?a=1&b=2
+#   p s.percent_encode_uri  #=> /index.html?id=%E3%83%9F%E3
+#   p s.args                #=> ?a=1&b=2
+#   p s.body                #=> "post data"
+#   p s.method              #=> "GET"
+#   p s.scheme              #=> "https"
+#   p s.authority           #=> "matsumoto-r.jp"
+#   p s.host                #=> "matsumoto-r.jp"
+#   p s.hostname            #=> "matsumoto-r.jp"
+#   p s.client_ip           #=> "192.168.12.5"
+#   p s.document_root       #=> "/path/to/htdocs"
+#   p s.user_agent          #=> "trusterd_client"
 #
 #   # location setting
 #   if s.request.uri == "/index.html"
