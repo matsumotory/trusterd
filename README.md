@@ -127,6 +127,9 @@ s = HTTP2::Server.new({
   # limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session
   # :write_packet_buffer_limit_size => 4096,
 
+  # measuring server status: default false
+  # :server_status => true,
+
 })
 
 #
@@ -164,6 +167,12 @@ s = HTTP2::Server.new({
 #   p s.client_ip           #=> "192.168.12.5"
 #   p s.document_root       #=> "/path/to/htdocs"
 #   p s.user_agent          #=> "trusterd_client"
+#
+#   p "if :server_status is true, use server status method"
+#   p "the number of total requesting stream #{s.total_stream_request}"
+#   p "the number of total requesting session #{s.total_session_request}"
+#   p "the number of current connected sessions #{s.connected_sessions}"
+#   p "the number of current processing streams #{s.active_stream}"
 #
 #   # location setting
 #   if s.request.uri == "/index.html"
