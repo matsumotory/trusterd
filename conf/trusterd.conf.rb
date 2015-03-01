@@ -213,5 +213,23 @@ s = HTTP2::Server.new({
 #
 # }
 
+#
+# or use access logging methods
+#s.setup_access_log({
+#  :file   => "/usr/local/trusterd/logs/access.log",
+#
+#  # :default or :custom
+#  # if using :custom, set logging format to write_access_log mehtod arg
+#  # s.write_access_log "client_ip: #{s.client_ip}"
+#  :format => :default,
+#
+#  # :plain or :json if using :default
+#  :type   => :plain,
+#})
+#
+#s.set_logging_cb {
+#  s.write_access_log
+#}
+
 s.run
 
