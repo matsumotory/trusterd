@@ -130,6 +130,9 @@ s = HTTP2::Server.new({
   # measuring server status: default false
   # :server_status => true,
 
+  # use reverse proxy methods: default false
+  # :upstream => true,
+
 })
 
 #
@@ -187,6 +190,8 @@ s = HTTP2::Server.new({
 #   # reverse proxy config
 #   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1.x
 #   # TODO: don't support connection with TLS to upstream server
+#   #
+#   # need :upstream => true
 #
 #   if s.request.uri =~ /^/$/
 #     # upstream request uri default: /
