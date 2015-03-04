@@ -1,5 +1,7 @@
 ![logo](https://raw.githubusercontent.com/trusterd/trusterd/master/images/logo_full_white.png)
 
+> Special thanks to @maybehelpy for creating trusterd logo!!
+
 # Trusterd HTTP/2 Web Server
 
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/trusterd/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
