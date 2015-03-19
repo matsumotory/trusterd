@@ -15,6 +15,8 @@ MRuby::Build.new do |conf|
   conf.gem :github => 'mattn/mruby-onig-regexp'
   conf.gem :github => 'mattn/mruby-json'
   conf.gem :github => "kou/mruby-pp"
+  conf.gem :github => "trusterd/mruby-trusterd-basicauth"
+  conf.gem :github => "qtkmz/mruby-crypt"
   conf.gem "../mrblib/trusterd-ext"
 
   # include the default GEMs
