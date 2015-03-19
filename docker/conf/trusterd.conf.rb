@@ -47,8 +47,8 @@ s = HTTP2::Server.new({
 
   # required when tls option is true.
   # tls option is true by default.
-  #:key            => "#{root_dir}/conf/server.key",
-  #:crt            => "#{root_dir}/conf/server.crt",
+  :key            => "#{root_dir}/conf/server.key",
+  :crt            => "#{root_dir}/conf/server.crt",
 
   # listen ip address
   # default value is 0.0.0.0
@@ -62,7 +62,7 @@ s = HTTP2::Server.new({
   # :debug  =>  true,
 
   # tls default: true
-  :tls => false,
+  :tls => true,
 
   # damone default: false
   # :daemon => true,
