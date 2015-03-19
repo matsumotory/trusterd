@@ -47,8 +47,8 @@ s = HTTP2::Server.new({
 
   # required when tls option is true.
   # tls option is true by default.
-  #:key            => "#{root_dir}/ssl/server.key",
-  #:crt            => "#{root_dir}/ssl/server.crt",
+  :key            => "#{root_dir}/conf/server.key",
+  :crt            => "#{root_dir}/conf/server.crt",
 
   # listen ip address
   # default value is 0.0.0.0
@@ -62,7 +62,7 @@ s = HTTP2::Server.new({
   # :debug  =>  true,
 
   # tls default: true
-  :tls => false,
+  :tls => true,
 
   # damone default: false
   # :daemon => true,
@@ -72,6 +72,27 @@ s = HTTP2::Server.new({
 
   # connection_record defualt: true
   # :connection_record => false,
+
+  # runngin user, start server with root and change to run_user
+  # :run_user => "daemon",
+
+  # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
+  # :rlimit_nofile => 65535,
+
+  # Set TCP_NOPUSH (TCP_CORK) option
+  # :tcp_nopush => true,
+
+  # expand buffer size before writing packet. decreace the number of small packets. That may be usefull for TLS session
+  # :write_packet_buffer_expand_size => 4096 * 4,
+
+  # limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session
+  # :write_packet_buffer_limit_size => 4096,
+
+  # measuring server status: default false
+  # :server_status => true,
+
+  # use reverse proxy methods: default false
+  # :upstream => true,
 
 })
 
