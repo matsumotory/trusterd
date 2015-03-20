@@ -74,7 +74,7 @@ s = HTTP2::Server.new({
   # :connection_record => false,
 
   # runngin user, start server with root and change to run_user
-  # :run_user => "daemon",
+  :run_user => "nobody",
 
   # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
   # :rlimit_nofile => 65535,

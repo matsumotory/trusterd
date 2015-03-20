@@ -323,9 +323,30 @@ nghttp -v http://127.0.0.1:8080/index.html
 docker build -t local/trusterd .
 ```
 ##### Runing
+You can run trusted directly.
+```
+$ docker run --rm local/trusterd --help
+Usage: ./bin/trusterd [switches] programfile
+  switches:
+  -b           load and execute RiteBinary (mrb) file
+  -c           check syntax only
+  -e 'command' one line of script
+  -v           print version number, then run in verbose mode
+  --verbose    run in verbose mode
+  --version    print the version
+  --copyright  print the copyright
+```
+Run with default configration. ([docker/conf/trusterd.conf.rb](./docker/conf/trusterd.conf.rb))
 ```
 docker run -d -p 8080:8080 local/trusterd
 ```
+Run with your configration.
+```
+mkdir localconf
+vi localconf/your_config.rb ## Write your configration.
+$ docker run -d -v `pwd`/localconf:/usr/local/trusterd/localconf -p 8080:8080 local/trusterd ./localconf/your_config.rb
+```
+
 ##### Access
 ```
 nghttp -v http://127.0.0.1:8080/index.html

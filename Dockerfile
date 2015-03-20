@@ -63,4 +63,6 @@ ONBUILD ADD docker/htdocs /usr/local/trusterd/htdocs
 #
 # exec root owner for now
 
-CMD ["/usr/local/trusterd/bin/trusterd", "/usr/local/trusterd/conf/trusterd.conf.rb"]
+WORKDIR /usr/local/trusterd
+ENTRYPOINT ["./bin/trusterd"]
+CMD ["./conf/trusterd.conf.rb"]
