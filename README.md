@@ -344,7 +344,7 @@ Run with your configration.
 ```
 mkdir localconf
 vi localconf/your_config.rb ## Write your configration.
-$ docker run -d -v `pwd`/localconf:/usr/local/trusterd/localconf local/trusterd ./localconf/your_config.rb
+$ docker run -d -v `pwd`/localconf:/usr/local/trusterd/localconf -p 8080:8080 local/trusterd ./localconf/your_config.rb
 ```
 
 ##### Access
