@@ -16,7 +16,7 @@ const char config[] = "                                       \n\
 ";
 
 const char response[] = "                                     \n\
-                       s.set_map_to_strage_cb {               \n\
+                       s.set_map_to_storage_cb {               \n\
                          if s.request.uri =~ /hello/          \n\
                            s.set_content_cb {                 \n\
                              s.rputs 'hello mini-trusterd '   \n\

@@ -15,7 +15,7 @@ s = HTTP2::Server.new({
 
 })
 
-s.set_map_to_strage_cb {
+s.set_map_to_storage_cb {
 #   # dynamic content with mruby
   if s.request.filename =~ /^.*\.rb$/
     s.enable_mruby

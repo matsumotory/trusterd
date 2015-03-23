@@ -33,7 +33,7 @@ s.setup_access_log({
 #
 
 # set map to storage phase
-s.set_map_to_strage_cb do
+s.set_map_to_storage_cb do
   s.location ".*\.php$" do
     s.filename = s.document_root + "/index.html"
   end

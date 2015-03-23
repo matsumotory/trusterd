@@ -115,9 +115,9 @@ s = HTTP2::Server.new({
 # s.r.response_headers["hoge"] = fuga
 #
 #
-# s.set_map_to_strage_cb {
+# s.set_map_to_storage_cb {
 #
-#   p "callback bloack at set_map_to_strage_cb"
+#   p "callback bloack at set_map_to_storage_cb"
 #   p s.filename            #=> /path/to/index.html
 #   p s.uri                 #=> /index.html
 #   p s.unparsed_uri        #=> /index.html?a=1&b=2

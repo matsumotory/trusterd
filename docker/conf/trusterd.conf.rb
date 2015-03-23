@@ -99,9 +99,9 @@ s = HTTP2::Server.new({
 #
 # when :callback option is true,
 #
-# s.set_map_to_strage_cb {
+# s.set_map_to_storage_cb {
 #
-#   p "callback bloack at set_map_to_strage_cb"
+#   p "callback bloack at set_map_to_storage_cb"
 #   p s.request.uri
 #   p s.request.filename
 #
