@@ -38,7 +38,13 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <h1>
+        <p><img src="https://raw.githubusercontent.com/trusterd/trusterd/master/images/logo_full_white.png" alt="logo"></p>
+
+<blockquote>
+<p>Special thanks to <a href="https://github.com/maybehelpy" class="user-mention">@maybehelpy</a> for creating trusterd logo!!</p>
+</blockquote>
+
+<h1>
 <a id="trusterd-http2-web-server" class="anchor" href="#trusterd-http2-web-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Trusterd HTTP/2 Web Server</h1>
 
 <p><a href="https://gitter.im/trusterd/trusterd?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img src="https://badges.gitter.im/Join%20Chat.svg" alt="Gitter"></a>
@@ -53,7 +59,6 @@
 <p>This is a very early version, please test and report errors. Wellcome pull-request.</p>
 
 <ul>
-<li>more customizable Web server configration</li>
 <li>Server Push</li>
 </ul>
 
@@ -128,33 +133,34 @@ cd trusterd
 <a id="6-write-config-install_prefixconftrusterdconfrb" class="anchor" href="#6-write-config-install_prefixconftrusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Write config <code>$(INSTALL_PREFIX)/conf/trusterd.conf.rb</code>
 </h4>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
-<span class="pl-vo">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
-<span class="pl-vo">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s2">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s2">}</span></span><span class="pl-pds">"</span></span>
+<div class="highlight highlight-ruby"><pre><span class="pl-c1">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
+<span class="pl-c1">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
+<span class="pl-c1">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-c1">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s1">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-c1">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>
 
-root_dir <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
+root_dir <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
 
-s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-s3">Server</span>.<span class="pl-k">new</span>({
+s <span class="pl-k">=</span> <span class="pl-c1">HTTP2</span>::<span class="pl-c1">Server</span>.<span class="pl-k">new</span>({
 
   <span class="pl-c">#</span>
   <span class="pl-c"># required config</span>
   <span class="pl-c">#</span>
 
   <span class="pl-c1">:port</span>           =&gt; <span class="pl-c1">8080</span>,
-  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2">root_dir</span><span class="pl-pse"><span class="pl-s2">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
-  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-vo">SERVER_DESCRIPTION</span>,
+  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1">root_dir</span><span class="pl-pse"><span class="pl-s1">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-c1">SERVER_DESCRIPTION</span>,
 
   <span class="pl-c"># support prefork only when linux kernel supports SO_REUSEPORT</span>
   <span class="pl-c"># :worker         =&gt; 4,</span>
 
   <span class="pl-c"># detect cpu thread automatically</span>
   <span class="pl-c"># If don't support SO_REUSEPORT of Linux, the number of worker is 0</span>
-  <span class="pl-c1">:worker</span>         =&gt; <span class="pl-s1"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:worker</span>         =&gt; <span class="pl-s"><span class="pl-pds">"</span>auto<span class="pl-pds">"</span></span>,
 
   <span class="pl-c"># required when tls option is true.</span>
   <span class="pl-c"># tls option is true by default.</span>
   <span class="pl-c">#:key            =&gt; "#{root_dir}/ssl/server.key",</span>
   <span class="pl-c">#:crt            =&gt; "#{root_dir}/ssl/server.crt",</span>
+  <span class="pl-c">#:dh_params_file =&gt; "#{root_dir}/ssl/dh.pem",</span>
 
   <span class="pl-c"># listen ip address</span>
   <span class="pl-c"># default value is 0.0.0.0</span>
@@ -194,16 +200,55 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
   <span class="pl-c"># limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session</span>
   <span class="pl-c"># :write_packet_buffer_limit_size =&gt; 4096,</span>
 
+  <span class="pl-c"># measuring server status: default false</span>
+  <span class="pl-c"># :server_status =&gt; true,</span>
+
+  <span class="pl-c"># use reverse proxy methods: default false</span>
+  <span class="pl-c"># :upstream =&gt; true,</span>
+
 })
 
 <span class="pl-c">#</span>
 <span class="pl-c"># when :callback option is true,</span>
 <span class="pl-c">#</span>
-<span class="pl-c"># s.set_map_to_strage_cb {</span>
+<span class="pl-c"># # custom request headers</span>
+<span class="pl-c"># # getter</span>
+<span class="pl-c"># s.r.headers_in[":method"] #=&gt; GET</span>
+<span class="pl-c"># s.r.request_headers[":method"] #=&gt; GET</span>
 <span class="pl-c">#</span>
-<span class="pl-c">#   p "callback bloack at set_map_to_strage_cb"</span>
-<span class="pl-c">#   p s.request.uri</span>
-<span class="pl-c">#   p s.request.filename</span>
+<span class="pl-c"># # custom response headers</span>
+<span class="pl-c"># # setter</span>
+<span class="pl-c"># s.r.headers_out["hoge"] = fuga</span>
+<span class="pl-c"># s.r.response_headers["hoge"] = fuga</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># # getter</span>
+<span class="pl-c"># s.r.headers_out["hoge] #=&gt; fuga</span>
+<span class="pl-c"># s.r.response_headers["hoge] #=&gt; fuga</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#</span>
+<span class="pl-c"># s.set_map_to_storage_cb {</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   p "callback bloack at set_map_to_storage_cb"</span>
+<span class="pl-c">#   p s.filename            #=&gt; /path/to/index.html</span>
+<span class="pl-c">#   p s.uri                 #=&gt; /index.html</span>
+<span class="pl-c">#   p s.unparsed_uri        #=&gt; /index.html?a=1&amp;b=2</span>
+<span class="pl-c">#   p s.percent_encode_uri  #=&gt; /index.html?id=%E3%83%9F%E3</span>
+<span class="pl-c">#   p s.args                #=&gt; ?a=1&amp;b=2</span>
+<span class="pl-c">#   p s.body                #=&gt; "post data"</span>
+<span class="pl-c">#   p s.method              #=&gt; "GET"</span>
+<span class="pl-c">#   p s.scheme              #=&gt; "https"</span>
+<span class="pl-c">#   p s.authority           #=&gt; "matsumoto-r.jp"</span>
+<span class="pl-c">#   p s.host                #=&gt; "matsumoto-r.jp"</span>
+<span class="pl-c">#   p s.hostname            #=&gt; "matsumoto-r.jp"</span>
+<span class="pl-c">#   p s.client_ip           #=&gt; "192.168.12.5"</span>
+<span class="pl-c">#   p s.document_root       #=&gt; "/path/to/htdocs"</span>
+<span class="pl-c">#   p s.user_agent          #=&gt; "trusterd_client"</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#   p "if :server_status is true, use server status method"</span>
+<span class="pl-c">#   p "the number of total requesting stream #{s.total_stream_request}"</span>
+<span class="pl-c">#   p "the number of total requesting session #{s.total_session_request}"</span>
+<span class="pl-c">#   p "the number of current connected sessions #{s.connected_sessions}"</span>
+<span class="pl-c">#   p "the number of current processing streams #{s.active_stream}"</span>
 <span class="pl-c">#</span>
 <span class="pl-c">#   # location setting</span>
 <span class="pl-c">#   if s.request.uri == "/index.html"</span>
@@ -215,13 +260,29 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c">#   # Or, you can use KVS like mruby-redis or mruby-</span>
 <span class="pl-c">#   # vedis and so on.</span>
 <span class="pl-c">#</span>
-<span class="pl-c">#   # Experiment: reverse proxy config</span>
-<span class="pl-c">#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1</span>
-<span class="pl-c">#   # TODO: reciev/send headers transparently and support HTTP/2 at upstream</span>
+<span class="pl-c">#   # reverse proxy config</span>
+<span class="pl-c">#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1.x</span>
+<span class="pl-c">#   # TODO: don't support connection with TLS to upstream server</span>
+<span class="pl-c">#   #</span>
+<span class="pl-c">#   # need :upstream =&gt; true</span>
 <span class="pl-c">#</span>
-<span class="pl-c">#   if s.request.uri =~ /^\/upstream(\/.*)/</span>
-<span class="pl-c">#     s.upstream_uri = $1</span>
-<span class="pl-c">#     s.upstream = “http://127.0.0.1“</span>
+<span class="pl-c">#   if s.request.uri =~ /^/$/</span>
+<span class="pl-c">#     # upstream request uri default: /</span>
+<span class="pl-c">#     s.upstream_uri = s.percent_encode_uri</span>
+<span class="pl-c">#     s.upstream_host = "127.0.0.1"</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#     # upstream port default: 80</span>
+<span class="pl-c">#     #s.upstream_port = 8080</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#     # upstream connection timeout default: 600 sec</span>
+<span class="pl-c">#     #s.upstream_timeout = 100</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#     # use keepalive deault: true</span>
+<span class="pl-c">#     #s.upstream_keepalive = false</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#     # use HTTP/1.0 protocol default: HTTP/1.1</span>
+<span class="pl-c">#     #s.upstream_proto_major = 1</span>
+<span class="pl-c">#     #s.upstream_proto_minor = 0</span>
 <span class="pl-c">#   end</span>
 <span class="pl-c">#</span>
 <span class="pl-c">#   # dynamic content with mruby</span>
@@ -243,6 +304,11 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c">#</span>
 <span class="pl-c"># }</span>
 
+<span class="pl-c"># extend response just before send response</span>
+<span class="pl-c"># s.set_fixups_cb {</span>
+<span class="pl-c">#  s.r.response_headers["server"] = "other server"</span>
+<span class="pl-c">#}</span>
+
 <span class="pl-c"># #If define set_content_cb this scope, callback only once</span>
 <span class="pl-c"># s.set_content_cb {</span>
 <span class="pl-c">#   s.rputs "hello trusterd world from cb"</span>
@@ -260,6 +326,26 @@ s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-
 <span class="pl-c">#</span>
 <span class="pl-c"># }</span>
 
+<span class="pl-c">#</span>
+<span class="pl-c"># or use access logging methods</span>
+<span class="pl-c">#s.setup_access_log({</span>
+<span class="pl-c">#  :file   =&gt; "/usr/local/trusterd/logs/access.log",</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#  # :default or :custom</span>
+<span class="pl-c">#  # if using :custom, set logging format to write_access_log mehtod arg</span>
+<span class="pl-c">#  # s.write_access_log "client_ip: #{s.client_ip}"</span>
+<span class="pl-c">#  :format =&gt; :default,</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#  # :plain or :json if using :default</span>
+<span class="pl-c">#  :type   =&gt; :plain,</span>
+<span class="pl-c">#})</span>
+<span class="pl-c">#</span>
+<span class="pl-c">#s.set_logging_cb {</span>
+<span class="pl-c">#  s.write_access_log</span>
+<span class="pl-c">#}</span>
+<span class="pl-c">#</span>
+
+
 s.run</pre></div>
 
 <h4>
@@ -269,14 +355,14 @@ s.run</pre></div>
 
 <p>or</p>
 
-<div class="highlight highlight-bash"><pre><span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/bin/trusterd <span class="pl-s1"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/conf/trusterd.conf.rb</pre></div>
+<div class="highlight highlight-bash"><pre><span class="pl-s"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/bin/trusterd <span class="pl-s"><span class="pl-pds">$(</span>INSTALL_PREFIX<span class="pl-pds">)</span></span>/conf/trusterd.conf.rb</pre></div>
 
 <h4>
 <a id="8-check-by-nghttp" class="anchor" href="#8-check-by-nghttp" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. Check by nghttp</h4>
 
 <p><a href="https://github.com/tatsuhiro-t/nghttp2#nghttp---client">nghttp</a> is a client tool for HTTP/2.</p>
 
-<pre><code>$ nghttp http://127.0.0.1:8080/index.html
+<pre><code>$ ${GIT_CLONE_DIR}/mruby/build/host/mrbgems/mruby-http2/nghttp2/src/nghttp -v http://127.0.0.1:8080/index.html
 hello trusterd world.
 </code></pre>
 
@@ -324,7 +410,30 @@ hello trusterd world.
 <h5>
 <a id="runing" class="anchor" href="#runing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Runing</h5>
 
+<p>You can run trusted directly.</p>
+
+<pre><code>$ docker run --rm local/trusterd --help
+Usage: ./bin/trusterd [switches] programfile
+  switches:
+  -b           load and execute RiteBinary (mrb) file
+  -c           check syntax only
+  -e 'command' one line of script
+  -v           print version number, then run in verbose mode
+  --verbose    run in verbose mode
+  --version    print the version
+  --copyright  print the copyright
+</code></pre>
+
+<p>Run with default configration. (<a href="./docker/conf/trusterd.conf.rb">docker/conf/trusterd.conf.rb</a>)</p>
+
 <pre><code>docker run -d -p 8080:8080 local/trusterd
+</code></pre>
+
+<p>Run with your configration.</p>
+
+<pre><code>mkdir localconf
+vi localconf/your_config.rb ## Write your configration.
+$ docker run -d -v `pwd`/localconf:/usr/local/trusterd/localconf -p 8080:8080 local/trusterd ./localconf/your_config.rb
 </code></pre>
 
 <h5>
@@ -364,17 +473,17 @@ hello trusterd world.
 <h4>
 <a id="trusterdconfrb" class="anchor" href="#trusterdconfrb" aria-hidden="true"><span class="octicon octicon-link"></span></a>trusterd.conf.rb</h4>
 
-<div class="highlight highlight-ruby"><pre><span class="pl-vo">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
-<span class="pl-vo">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
-<span class="pl-vo">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s2">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s2"><span class="pl-vo">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s2">}</span></span><span class="pl-pds">"</span></span>
+<div class="highlight highlight-ruby"><pre><span class="pl-c1">SERVER_NAME</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Trusterd<span class="pl-pds">"</span></span>
+<span class="pl-c1">SERVER_VERSION</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>0.0.1<span class="pl-pds">"</span></span>
+<span class="pl-c1">SERVER_DESCRIPTION</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-c1">SERVER_NAME</span></span><span class="pl-pse"><span class="pl-s1">}</span></span>/<span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-c1">SERVER_VERSION</span></span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>
 
-root_dir <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
+root_dir <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>/usr/local/trusterd<span class="pl-pds">"</span></span>
 
-s <span class="pl-k">=</span> <span class="pl-s3">HTTP2</span>::<span class="pl-s3">Server</span>.<span class="pl-k">new</span>({
+s <span class="pl-k">=</span> <span class="pl-c1">HTTP2</span>::<span class="pl-c1">Server</span>.<span class="pl-k">new</span>({
 
   <span class="pl-c1">:port</span>           =&gt; <span class="pl-c1">8081</span>,
-  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s1"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s2">root_dir</span><span class="pl-pse"><span class="pl-s2">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
-  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-vo">SERVER_DESCRIPTION</span>,
+  <span class="pl-c1">:document_root</span>  =&gt; <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1">root_dir</span><span class="pl-pse"><span class="pl-s1">}</span></span>/htdocs<span class="pl-pds">"</span></span>,
+  <span class="pl-c1">:server_name</span>    =&gt; <span class="pl-c1">SERVER_DESCRIPTION</span>,
   <span class="pl-c1">:tls</span>            =&gt; <span class="pl-c1">false</span>,
 
 })
