@@ -64,16 +64,16 @@ s = HTTP2::Server.new({
   # tls default: true
   :tls => true,
 
-  # damone default: false
+  # daemon default: false
   # :daemon => true,
 
   # callback default: false
   # :callback => true,
 
-  # connection_record defualt: true
+  # connection_record default: true
   # :connection_record => false,
 
-  # runngin user, start server with root and change to run_user
+  # running user, start server with root and change to run_user
   :run_user => "nobody",
 
   # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
@@ -82,7 +82,7 @@ s = HTTP2::Server.new({
   # Set TCP_NOPUSH (TCP_CORK) option
   # :tcp_nopush => true,
 
-  # expand buffer size before writing packet. decreace the number of small packets. That may be usefull for TLS session
+  # expand buffer size before writing packet. decrease the number of small packets. That may be usefull for TLS session
   # :write_packet_buffer_expand_size => 4096 * 4,
 
   # limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session
@@ -101,7 +101,7 @@ s = HTTP2::Server.new({
 #
 # s.set_map_to_storage_cb {
 #
-#   p "callback bloack at set_map_to_storage_cb"
+#   p "callback block at set_map_to_storage_cb"
 #   p s.request.uri
 #   p s.request.filename
 #

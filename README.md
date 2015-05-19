@@ -8,10 +8,10 @@
 [![Build Status](https://travis-ci.org/trusterd/trusterd.svg?branch=master)](https://travis-ci.org/trusterd/trusterd)
 [![wercker status](https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s "wercker status")](https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f)
 
-[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high permance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/trusterd/trusterd/blob/master/README.md#embed-into-your-c-application).
+[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high performance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/trusterd/trusterd/blob/master/README.md#embed-into-your-c-application).
 
 ## TODO
-This is a very early version, please test and report errors. Wellcome pull-request.
+This is a very early version, please test and report errors. Welcome pull-request.
 - Server Push
 
 ## Requirements
@@ -31,7 +31,7 @@ After reading [.travis.yml](https://github.com/trusterd/trusterd/blob/master/.tr
 #### 1. Install qrintf (Optional, but recommended)
 Please see [qrintf-gcc](https://github.com/h2o/qrintf)
 
-or commet out this line in `build_config.rb`
+or comment out this line in `build_config.rb`
 
 ```
 cc.command = ENV['CC'] || 'qrintf-gcc'
@@ -107,16 +107,16 @@ s = HTTP2::Server.new({
   # tls default: true
   :tls => false,
 
-  # damone default: false
+  # daemon default: false
   # :daemon => true,
 
   # callback default: false
   # :callback => true,
 
-  # connection_record defualt: true
+  # connection_record default: true
   # :connection_record => false,
 
-  # runngin user, start server with root and change to run_user
+  # running user, start server with root and change to run_user
   # :run_user => "daemon",
 
   # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
@@ -125,7 +125,7 @@ s = HTTP2::Server.new({
   # Set TCP_NOPUSH (TCP_CORK) option
   # :tcp_nopush => true,
 
-  # expand buffer size before writing packet. decreace the number of small packets. That may be usefull for TLS session
+  # expand buffer size before writing packet. decrease the number of small packets. That may be usefull for TLS session
   # :write_packet_buffer_expand_size => 4096 * 4,
 
   # limit buffer size before writing packet. write packet beyond the value. That may be usefull for TLS session
@@ -159,7 +159,7 @@ s = HTTP2::Server.new({
 #
 # s.set_map_to_storage_cb {
 #
-#   p "callback bloack at set_map_to_storage_cb"
+#   p "callback block at set_map_to_storage_cb"
 #   p s.filename            #=> /path/to/index.html
 #   p s.uri                 #=> /index.html
 #   p s.unparsed_uri        #=> /index.html?a=1&b=2
@@ -192,7 +192,7 @@ s = HTTP2::Server.new({
 #   # vedis and so on.
 #
 #   # reverse proxy config
-#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1.x
+#   # receive front end with HTTP/2 and proxy upstream server with HTTP/1.x
 #   # TODO: don't support connection with TLS to upstream server
 #   #
 #   # need :upstream => true
@@ -208,7 +208,7 @@ s = HTTP2::Server.new({
 #     # upstream connection timeout default: 600 sec
 #     #s.upstream_timeout = 100
 #
-#     # use keepalive deault: true
+#     # use keepalive default: true
 #     #s.upstream_keepalive = false
 #
 #     # use HTTP/1.0 protocol default: HTTP/1.1
@@ -263,7 +263,7 @@ s = HTTP2::Server.new({
 #  :file   => "/usr/local/trusterd/logs/access.log",
 #
 #  # :default or :custom
-#  # if using :custom, set logging format to write_access_log mehtod arg
+#  # if using :custom, set logging format to write_access_log method arg
 #  # s.write_access_log "client_ip: #{s.client_ip}"
 #  :format => :default,
 #
@@ -322,7 +322,7 @@ nghttp -v http://127.0.0.1:8080/index.html
 ```
 docker build -t local/trusterd .
 ```
-##### Runing
+##### Running
 You can run trusted directly.
 ```
 $ docker run --rm local/trusterd --help
@@ -336,14 +336,14 @@ Usage: ./bin/trusterd [switches] programfile
   --version    print the version
   --copyright  print the copyright
 ```
-Run with default configration. ([docker/conf/trusterd.conf.rb](./docker/conf/trusterd.conf.rb))
+Run with default configuration. ([docker/conf/trusterd.conf.rb](./docker/conf/trusterd.conf.rb))
 ```
 docker run -d -p 8080:8080 local/trusterd
 ```
-Run with your configration.
+Run with your configuration.
 ```
 mkdir localconf
-vi localconf/your_config.rb ## Write your configration.
+vi localconf/your_config.rb ## Write your configuration.
 $ docker run -d -v `pwd`/localconf:/usr/local/trusterd/localconf -p 8080:8080 local/trusterd ./localconf/your_config.rb
 ```
 
@@ -353,13 +353,13 @@ nghttp -v http://127.0.0.1:8080/index.html
 ```
 
 ## Embed into your C application
-### HTTP/2 Server fucntion
+### HTTP/2 Server function
 See [src/mini_trusterd.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd.c)
 
 ### HTTP/2 Client function
 See [src/mini_trusterd_client.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd_client.c)
 
-## Peformance
+## Performance
 ### Machine
 
 - Ubuntu14.04 on VMWare
@@ -394,7 +394,7 @@ s.run
 - use [h2o/h2o benchmark parameter](https://github.com/h2o/h2o#benchmarks)
 
 #### 4 worker mode benchmark demo
-500,000 reqeuat/sec is very fater!!
+500,000 requests/sec is very faster!!
 ![](https://raw.githubusercontent.com/trusterd/trusterd/master/images/bench.png)
 
 #### 4 worker mode cpu usage by top demo

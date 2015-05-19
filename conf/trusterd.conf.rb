@@ -65,16 +65,16 @@ s = HTTP2::Server.new({
   # tls default: true
   :tls => false,
 
-  # damone default: false
+  # daemon default: false
   # :daemon => true,
 
   # callback default: false
   # :callback => true,
 
-  # connection_record defualt: true
+  # connection_record default: true
   # :connection_record => false,
 
-  # runngin user, start server with root and change to run_user
+  # running user, start server with root and change to run_user
   # :run_user => "daemon",
 
   # Tuning RLIMIT_NOFILE, start server with root and must set run_user instead of root
@@ -117,7 +117,7 @@ s = HTTP2::Server.new({
 #
 # s.set_map_to_storage_cb {
 #
-#   p "callback bloack at set_map_to_storage_cb"
+#   p "callback block at set_map_to_storage_cb"
 #   p s.filename            #=> /path/to/index.html
 #   p s.uri                 #=> /index.html
 #   p s.unparsed_uri        #=> /index.html?a=1&b=2
@@ -150,7 +150,7 @@ s = HTTP2::Server.new({
 #   # vedis and so on.
 #
 #   # reverse proxy config
-#   # reciev front end with HTTP/2 and proxy upstream server with HTTP/1.x
+#   # receive front end with HTTP/2 and proxy upstream server with HTTP/1.x
 #   # TODO: don't support connection with TLS to upstream server
 #   # need :upstream => true
 #
@@ -165,7 +165,7 @@ s = HTTP2::Server.new({
 #     # upstream connection timeout default: 600 sec
 #     #s.upstream_timeout = 100
 #
-#     # use keepalive deault: true
+#     # use keepalive default: true
 #     #s.upstream_keepalive = false
 #
 #     # use HTTP/1.0 protocol default: HTTP/1.1
@@ -219,7 +219,7 @@ s = HTTP2::Server.new({
 #  :file   => "/usr/local/trusterd/logs/access.log",
 #
 #  # :default or :custom
-#  # if using :custom, set logging format to write_access_log mehtod arg
+#  # if using :custom, set logging format to write_access_log method arg
 #  # s.write_access_log "client_ip: #{s.client_ip}"
 #  :format => :default,
 #
