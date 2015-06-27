@@ -70,6 +70,9 @@ SERVER_DESCRIPTION = "#{SERVER_NAME}/#{SERVER_VERSION}"
 
 root_dir = "/usr/local/trusterd"
 
+# use env value
+debug_opt = (ENV["RELEASE"] == "production") ? false : true
+
 s = HTTP2::Server.new({
 
   #
@@ -102,7 +105,7 @@ s = HTTP2::Server.new({
   #
 
   # debug default: false
-  # :debug  =>  true,
+  :debug  =>  debug_opt,
 
   # tls default: true
   :tls => false,
