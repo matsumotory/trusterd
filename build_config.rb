@@ -6,7 +6,7 @@ MRuby::Build.new do |conf|
   # enable_debug
 
   conf.gem :github => 'matsumoto-r/mruby-simplehttp'
-  conf.gem :github => 'trusterd/mruby-http2'
+  conf.gem :github => 'matsumoto-r/mruby-http2'
   conf.gem :github => 'iij/mruby-io'
   conf.gem :github => 'iij/mruby-dir'
   conf.gem :github => 'iij/mruby-socket'
