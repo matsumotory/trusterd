@@ -1,14 +1,14 @@
-![logo](https://raw.githubusercontent.com/trusterd/trusterd/master/images/logo_full_white.png)
+![logo](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/logo_full_white.png)
 
 > Special thanks to @maybehelpy for creating trusterd logo!!
 
 # Trusterd HTTP/2 Web Server
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/trusterd/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/trusterd/trusterd.svg?branch=master)](https://travis-ci.org/trusterd/trusterd)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/matsumoto-r/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master)](https://travis-ci.org/matsumoto-r/trusterd)
 [![wercker status](https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s "wercker status")](https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f)
 
-[Trusterd](https://github.com/trusterd/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high performance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/trusterd/trusterd/blob/master/README.md#embed-into-your-c-application).
+[Trusterd](https://github.com/matsumoto-r/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high performance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/matsumoto-r/trusterd/blob/master/README.md#embed-into-your-c-application).
 
 ## TODO
 This is a very early version, please test and report errors. Welcome pull-request.
@@ -21,10 +21,10 @@ This is a very early version, please test and report errors. Welcome pull-reques
 - Trusterd Requirements
   - libjemalloc-dev
   - [qrintf-gcc](https://github.com/h2o/qrintf)
-  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/trusterd/trusterd/blob/master/build_config.rb#L34-L62)
+  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
 - If you use prefork mode, linux kernel need to support `SO_REUSEPORT`.
 
-After reading [.travis.yml](https://github.com/trusterd/trusterd/blob/master/.travis.yml), you might easy to understand the install
+After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml), you might easy to understand the install
 
 ## Quick install
 ### Manual Build
@@ -51,7 +51,7 @@ linker.flags_after_libraries << '-ljemalloc'
 
 #### 3. Download trusterd
 ```
-git clone https://github.com/trusterd/trusterd.git
+git clone https://github.com/matsumoto-r/trusterd.git
 cd trusterd
 ```
 #### 4. Build trusterd
@@ -357,10 +357,10 @@ nghttp -v http://127.0.0.1:8080/index.html
 
 ## Embed into your C application
 ### HTTP/2 Server function
-See [src/mini_trusterd.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd.c)
+See [src/mini_trusterd.c](https://github.com/matsumoto-r/trusterd/blob/master/src/mini_trusterd.c)
 
 ### HTTP/2 Client function
-See [src/mini_trusterd_client.c](https://github.com/trusterd/trusterd/blob/master/src/mini_trusterd_client.c)
+See [src/mini_trusterd_client.c](https://github.com/matsumoto-r/trusterd/blob/master/src/mini_trusterd_client.c)
 
 ## Performance
 ### Machine
@@ -398,11 +398,11 @@ s.run
 
 #### 4 worker mode benchmark demo
 500,000 requests/sec is very faster!!
-![](https://raw.githubusercontent.com/trusterd/trusterd/master/images/bench.png)
+![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/bench.png)
 
 #### 4 worker mode cpu usage by top demo
 trusterd worker processes use cpu resources of full core mostly.
-![](https://raw.githubusercontent.com/trusterd/trusterd/master/images/top.png)
+![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/top.png)
 
 #### HTTP/2
 
@@ -411,8 +411,8 @@ trusterd worker processes use cpu resources of full core mostly.
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|148,841|73,812|
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) multi thread|347,152|104,244|
 |tiny-nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|190,223|82,047|
-|[Trusterd @ 2432cc5](https://github.com/trusterd/trusterd) single process|204,769|92,068|
-|[Trusterd @ 2432cc5](https://github.com/trusterd/trusterd) multi process|509,059| 134,542 |
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|204,769|92,068|
+|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) multi process|509,059| 134,542 |
 |[H2O @ 529be4e](https://github.com/h2o/h2o) single thread          |216,453|     112,356|
 |[H2O @ 529be4e](https://github.com/h2o/h2o) multi thread          |379,623|     146,343|
 
