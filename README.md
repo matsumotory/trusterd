@@ -295,12 +295,12 @@ $(INSTALL_PREFIX)/bin/trusterd $(INSTALL_PREFIX)/conf/trusterd.conf.rb
 
 or if you want to support both HTTP/1 and HTTP/2, we recommend to use [nghttpx](https://github.com/tatsuhiro-t/nghttp2) as reverse proxy
 
-```
+```bash
 $(INSTALL_PREFIX)/bin/trusterd $(INSTALL_PREFIX)/conf/trusterd.conf.rb
-sudo nghttpx -f,443 -b127.0.0.1,8080 --http2-bridge --backend-no-tls /usr/local/trusterd/ssl/server.key /usr/local/trusterd/ssl/server.crt
+sudo nghttpx -f,443 -b127.0.0.1,8080 --http2-bridge --backend-no-tls $(INSTALL_PREFIX)/ssl/server.key $(INSTALL_PREFIX)/ssl/server.crt
 ```
 
-trusterd listen 127.0.0.1:8080 and nghttpx listen 0.0.0.0:443 as front
+trusterd listen 127.0.0.1:8080 with HTTP/2 and nghttpx listen 0.0.0.0:443 as front with both HTTP/1 and HTTP/2.
 
 #### 8. Check by nghttp
 [nghttp](https://github.com/tatsuhiro-t/nghttp2#nghttp---client) is a client tool for HTTP/2.
