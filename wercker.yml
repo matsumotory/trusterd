@@ -1,11 +1,17 @@
 box: wercker-labs/docker
+no-response-timeout: 30
 build:
     steps:
         - script:
             name: docker version
             code: |
-              docker -v
+              wget https://master.dockerproject.org/linux/amd64/docker
+              chmod +x docker.1
+              ./docker.1 -v
         - script:
             name: docker build
             code: |
-              docker build -t trusterd_ci .
+              sudo service docker stop
+              sudo /sbin/start-stop-daemon -b -x /pipeline/build/docker.1 -S -- daemon
+              sleep 300;echo ".";sleep 300;echo ".";sleep 300;echo "."
+              sudo ./docker.1 build -t trusterd_ci_1 .
