@@ -1,14 +1,14 @@
-![logo](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/logo_full_white.png)
+![logo](https://raw.githubusercontent.com/matsumotory/trusterd/master/images/logo_full_white.png)
 
 > Special thanks to @maybehelpy for creating trusterd logo!!
 
 # Trusterd HTTP/2 Web Server
 
-[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/matsumoto-r/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/matsumoto-r/trusterd.svg?branch=master)](https://travis-ci.org/matsumoto-r/trusterd)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/matsumotory/trusterd?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/matsumotory/trusterd.svg?branch=master)](https://travis-ci.org/matsumotory/trusterd)
 [![wercker status](https://app.wercker.com/status/d389a8a05b263e469d51f40d532af04f/s "wercker status")](https://app.wercker.com/project/bykey/d389a8a05b263e469d51f40d532af04f)
 
-[Trusterd](https://github.com/matsumoto-r/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high performance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/matsumoto-r/trusterd/blob/master/README.md#embed-into-your-c-application).
+[Trusterd](https://github.com/matsumotory/trusterd) is a high performance HTTP/2 Web Server scripting with [mruby](https://github.com/mruby/mruby) using [nghttp2](https://github.com/tatsuhiro-t/nghttp2) and [mruby-http2](https://github.com/trusterd/mruby-http2). You can get HTTP/2 Web Server quickly which is high performance and customizable with mruby. The HTTP/2 server and client function are pluggable. So, [you can embed these functions into your C applications](https://github.com/matsumotory/trusterd/blob/master/README.md#embed-into-your-c-application).
 
 ## TODO
 This is a very early version, please test and report errors. Welcome pull-request.
@@ -21,10 +21,10 @@ This is a very early version, please test and report errors. Welcome pull-reques
 - Trusterd Requirements
   - libjemalloc-dev
   - [qrintf-gcc](https://github.com/h2o/qrintf)
-  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumoto-r/trusterd/blob/master/build_config.rb#L34-L62)
+  - If you don't have jemalloc and qrintf-gcc, comment out these lines on [build_config.rb](https://github.com/matsumotory/trusterd/blob/master/build_config.rb#L34-L62)
 - If you use prefork mode, linux kernel need to support `SO_REUSEPORT`.
 
-After reading [.travis.yml](https://github.com/matsumoto-r/trusterd/blob/master/.travis.yml), you might easy to understand the install
+After reading [.travis.yml](https://github.com/matsumotory/trusterd/blob/master/.travis.yml), you might easy to understand the install
 
 ## Quick install
 ### Manual Build
