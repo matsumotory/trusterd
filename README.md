@@ -16,7 +16,8 @@ This is a very early version, please test and report errors. Welcome pull-reques
 ## Requirements
 
 ```
-rake bison git gperf libev-dev libevent-dev libjansson-dev libjemalloc-dev libxml2-dev libssl-dev zlib1g-dev libc-ares-dev
+rake bison git gperf libev-dev libevent-dev libjansson-dev libjemalloc-dev \
+  libxml2-dev libssl-dev zlib1g-dev libc-ares-dev
 ```
 
 - [nghttp2 Requirements](https://github.com/tatsuhiro-t/nghttp2#requirements)
