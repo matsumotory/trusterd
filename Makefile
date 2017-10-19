@@ -16,18 +16,18 @@ all: trusterd
 trusterd:
 	git submodule init
 	git submodule update
-	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake
+	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && make
 	cp -p $(MRUBY_ROOT)/bin/mruby $(TRUSTERD_ROOT)/bin/trusterd
 
 mini-trusterd:
 	git submodule init
 	git submodule update
-	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake
+	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && make
 	cd src/ && make
 
 # 	test
 test:
-	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && rake all test
+	cd $(MRUBY_ROOT) && cp -f ../build_config.rb . && make test
 
 #   install
 install:
@@ -40,7 +40,7 @@ install:
 #   cleanup
 clean:
 	-rm -rf $(TRUSTERD_ROOT)/bin/trusterd
-	cd $(MRUBY_ROOT) && rake deep_clean
+	cd $(MRUBY_ROOT) && make clean
 	cd $(MRUBY_ROOT) && git checkout HEAD .
 
 #   the general trusterd start/restart/stop procedures
