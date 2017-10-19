@@ -6,7 +6,7 @@ before_install:
   - sudo add-apt-repository --yes ppa:ubuntu-toolchain-r/test
   - sudo apt-get -qq update
 install:
-  - sudo apt-get -qq install rake bison git gperf g++-4.8 libev-dev libevent-dev libjansson-dev libjemalloc-dev libxml2-dev libssl-dev zlib1g-dev
+  - sudo apt-get -qq install rake bison git gperf g++-4.8 libev-dev libevent-dev libjansson-dev libjemalloc-dev libxml2-dev libssl-dev zlib1g-dev libc-ares-dev
   - if [ "$CXX" = "g++" ]; then export CXX="g++-4.8"; fi
   - git clone https://github.com/h2o/qrintf.git
   - cd qrintf
