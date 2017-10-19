@@ -51,7 +51,7 @@ linker.flags_after_libraries << '-ljemalloc'
 
 #### 3. Download trusterd
 ```
-git clone https://github.com/matsumoto-r/trusterd.git
+git clone https://github.com/matsumotory/trusterd.git
 cd trusterd
 ```
 #### 4. Build trusterd
@@ -366,10 +366,10 @@ nghttp -v http://127.0.0.1:8080/index.html
 
 ## Embed into your C application
 ### HTTP/2 Server function
-See [src/mini_trusterd.c](https://github.com/matsumoto-r/trusterd/blob/master/src/mini_trusterd.c)
+See [src/mini_trusterd.c](https://github.com/matsumotory/trusterd/blob/master/src/mini_trusterd.c)
 
 ### HTTP/2 Client function
-See [src/mini_trusterd_client.c](https://github.com/matsumoto-r/trusterd/blob/master/src/mini_trusterd_client.c)
+See [src/mini_trusterd_client.c](https://github.com/matsumotory/trusterd/blob/master/src/mini_trusterd_client.c)
 
 ## Performance
 ### Machine
@@ -407,11 +407,11 @@ s.run
 
 #### 4 worker mode benchmark demo
 500,000 requests/sec is very faster!!
-![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/bench.png)
+![](https://raw.githubusercontent.com/matsumotory/trusterd/master/images/bench.png)
 
 #### 4 worker mode cpu usage by top demo
 trusterd worker processes use cpu resources of full core mostly.
-![](https://raw.githubusercontent.com/matsumoto-r/trusterd/master/images/top.png)
+![](https://raw.githubusercontent.com/matsumotory/trusterd/master/images/top.png)
 
 #### HTTP/2
 
@@ -420,8 +420,8 @@ trusterd worker processes use cpu resources of full core mostly.
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|148,841|73,812|
 |nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) multi thread|347,152|104,244|
 |tiny-nghttpd ([nghttpd @ a08ce38](https://github.com/tatsuhiro-t/nghttp2/)) single thread|190,223|82,047|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) single process|204,769|92,068|
-|[Trusterd @ 2432cc5](https://github.com/matsumoto-r/trusterd) multi process|509,059| 134,542 |
+|[Trusterd @ 2432cc5](https://github.com/matsumotory/trusterd) single process|204,769|92,068|
+|[Trusterd @ 2432cc5](https://github.com/matsumotory/trusterd) multi process|509,059| 134,542 |
 |[H2O @ 529be4e](https://github.com/h2o/h2o) single thread          |216,453|     112,356|
 |[H2O @ 529be4e](https://github.com/h2o/h2o) multi thread          |379,623|     146,343|
 
