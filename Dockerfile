@@ -41,7 +41,7 @@ RUN apt-get -y install sudo openssh-server git curl rake bison \
 RUN cd /usr/local/src/ && git clone --depth 1 https://github.com/h2o/qrintf.git
 RUN cd /usr/local/src/qrintf && make install PREFIX=/usr/local
 
-RUN cd /usr/local/src/ && git clone --depth 1 git://github.com/matsumoto-r/trusterd.git
+RUN cd /usr/local/src/ && git clone --depth 1 git://github.com/matsumotory/trusterd.git
 RUN cd /usr/local/src/trusterd && make && make install INSTALL_PREFIX=/usr/local/trusterd
 
 EXPOSE 8080
