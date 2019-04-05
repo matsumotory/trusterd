@@ -1,9 +1,4 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "xenial64"
-  config.disksize.size = '50GB'
-
-  config.vm.provider "virtualbox" do |vb|
-    vb.memory = (1024*8).to_s
-  end
+  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.provision "shell", :path => "misc/provision.sh", :privileged => false
 end
-

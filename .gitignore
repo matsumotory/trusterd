@@ -2,3 +2,4 @@ bin/trusterd
 build/
 src/mini-trusterd
 src/mini-trusterd-client
+.vagrant/
